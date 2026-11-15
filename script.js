@@ -1,8 +1,13 @@
 /* ============ PRELOADER ============ */
-window.addEventListener('load',()=>{
-  document.getElementById('preBarFill').style.width='100%';
-  setTimeout(()=>document.getElementById('preloader').classList.add('done'),700);
-});
+function hidePreloader(){
+  const fill=document.getElementById('preBarFill');
+  const pre=document.getElementById('preloader');
+  if(fill) fill.style.width='100%';
+  if(pre) pre.classList.add('done');
+}
+window.addEventListener('load',()=>setTimeout(hidePreloader,700));
+/* fail-safe: never trap the visitor behind the overlay on a slow phone */
+setTimeout(hidePreloader,3500);
 
 /* ============ INPUT CAPABILITY ============ */
 const finePointer = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
@@ -83,9 +88,15 @@ if(navBackdrop) navBackdrop.addEventListener('click',closeMenu);
 document.querySelectorAll('.navlink').forEach(l=>l.addEventListener('click',closeMenu));
 document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeMenu(); });
 window.addEventListener('resize',()=>{ if(window.innerWidth>900) closeMenu(); });
+/* never leave the page scroll-locked after a bfcache restore / orientation flip */
+window.addEventListener('pageshow',closeMenu);
+window.addEventListener('orientationchange',()=>setTimeout(closeMenu,150));
 
 /* ============ SCROLL REVEAL ============ */
 const revealEls=document.querySelectorAll('.reveal');
+if(!('IntersectionObserver' in window)){
+  revealEls.forEach(el=>el.classList.add('in'));
+}
 const io=new IntersectionObserver((entries)=>{
   entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('in'),i*60); io.unobserve(e.target);} });
 },{threshold:.15});
