@@ -4,38 +4,47 @@ window.addEventListener('load',()=>{
   setTimeout(()=>document.getElementById('preloader').classList.add('done'),700);
 });
 
+/* ============ INPUT CAPABILITY ============ */
+const finePointer = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+
 /* ============ CUSTOM CURSOR ============ */
 const cursor=document.getElementById('cursor'), dot=document.getElementById('cursorDot');
 let mx=0,my=0,cx=0,cy=0;
 window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
 function animCursor(){cx+=(mx-cx)*0.15;cy+=(my-cy)*0.15;cursor.style.left=cx+'px';cursor.style.top=cy+'px';requestAnimationFrame(animCursor);}
 animCursor();
-document.querySelectorAll('a,button,.tilt-card,input,textarea').forEach(el=>{
-  el.addEventListener('mouseenter',()=>cursor.classList.add('hover'));
-  el.addEventListener('mouseleave',()=>cursor.classList.remove('hover'));
-});
+if(finePointer){
+  document.querySelectorAll('a,button,.tilt-card,input,textarea').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cursor.classList.add('hover'));
+    el.addEventListener('mouseleave',()=>cursor.classList.remove('hover'));
+  });
+}
 
 /* ============ MAGNETIC BUTTONS ============ */
-document.querySelectorAll('.magnetic').forEach(btn=>{
-  btn.addEventListener('mousemove',e=>{
-    const r=btn.getBoundingClientRect();
-    const x=e.clientX-r.left-r.width/2, y=e.clientY-r.top-r.height/2;
-    btn.style.transform=`translate(${x*0.25}px,${y*0.4}px)`;
+if(finePointer){
+  document.querySelectorAll('.magnetic').forEach(btn=>{
+    btn.addEventListener('mousemove',e=>{
+      const r=btn.getBoundingClientRect();
+      const x=e.clientX-r.left-r.width/2, y=e.clientY-r.top-r.height/2;
+      btn.style.transform=`translate(${x*0.25}px,${y*0.4}px)`;
+    });
+    btn.addEventListener('mouseleave',()=>btn.style.transform='translate(0,0)');
   });
-  btn.addEventListener('mouseleave',()=>btn.style.transform='translate(0,0)');
-});
+}
 
 /* ============ TILT CARDS ============ */
-document.querySelectorAll('.tilt-card').forEach(card=>{
-  card.addEventListener('mousemove',e=>{
-    const r=card.getBoundingClientRect();
-    const x=e.clientX-r.left, y=e.clientY-r.top;
-    const rotX=((y/r.height)-0.5)*-14, rotY=((x/r.width)-0.5)*14;
-    card.style.transform=`perspective(700px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-6px)`;
-    card.style.setProperty('--mx',x+'px'); card.style.setProperty('--my',y+'px');
+if(finePointer){
+  document.querySelectorAll('.tilt-card').forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const x=e.clientX-r.left, y=e.clientY-r.top;
+      const rotX=((y/r.height)-0.5)*-14, rotY=((x/r.width)-0.5)*14;
+      card.style.transform=`perspective(700px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-6px)`;
+      card.style.setProperty('--mx',x+'px'); card.style.setProperty('--my',y+'px');
+    });
+    card.addEventListener('mouseleave',()=>card.style.transform='perspective(700px) rotateX(0) rotateY(0) translateY(0)');
   });
-  card.addEventListener('mouseleave',()=>card.style.transform='perspective(700px) rotateX(0) rotateY(0) translateY(0)');
-});
+}
 
 /* ============ NAVBAR SCROLL ============ */
 const header=document.getElementById('header');
@@ -51,9 +60,29 @@ window.addEventListener('scroll',()=>{
 scrollTopBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
 /* ============ MOBILE MENU ============ */
-const burger=document.getElementById('burger'), navLinks=document.getElementById('navLinks');
-burger.addEventListener('click',()=>{navLinks.classList.toggle('open');burger.classList.toggle('open');});
-document.querySelectorAll('.navlink').forEach(l=>l.addEventListener('click',()=>navLinks.classList.remove('open')));
+const burger=document.getElementById('burger'),
+      navLinks=document.getElementById('navLinks'),
+      navBackdrop=document.getElementById('navBackdrop'),
+      navClose=document.getElementById('navClose');
+
+function setMenu(open){
+  navLinks.classList.toggle('open',open);
+  burger.classList.toggle('open',open);
+  if(navBackdrop) navBackdrop.classList.toggle('show',open);
+  /* lock the page behind the drawer so nothing drifts */
+  document.body.classList.toggle('menu-open',open);
+  burger.setAttribute('aria-expanded',open?'true':'false');
+  burger.setAttribute('aria-label',open?'Close menu':'Open menu');
+  if(open && navClose) navClose.focus({preventScroll:true});
+}
+function closeMenu(){ setMenu(false); }
+
+burger.addEventListener('click',()=>setMenu(!navLinks.classList.contains('open')));
+if(navClose) navClose.addEventListener('click',closeMenu);
+if(navBackdrop) navBackdrop.addEventListener('click',closeMenu);
+document.querySelectorAll('.navlink').forEach(l=>l.addEventListener('click',closeMenu));
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeMenu(); });
+window.addEventListener('resize',()=>{ if(window.innerWidth>900) closeMenu(); });
 
 /* ============ SCROLL REVEAL ============ */
 const revealEls=document.querySelectorAll('.reveal');
@@ -89,11 +118,21 @@ dots.forEach(d=>d.addEventListener('click',()=>showSlide(+d.dataset.i)));
 setInterval(()=>showSlide((active+1)%slides.length),5000);
 
 /* ============ CONTACT FORM ============ */
-document.getElementById('contactForm').addEventListener('submit',function(e){
-  e.preventDefault();
-  document.getElementById('formMsg').style.display='block';
-  this.reset();
-});
+const contactForm=document.getElementById('contactForm');
+if(contactForm){
+  contactForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    const msg=document.getElementById('formMsg');
+    if(msg){
+      msg.style.display='block';
+      /* reveal the message without scrolling the tapped button away */
+      const y=window.scrollY;
+      msg.scrollIntoView({block:'nearest',behavior:'smooth'});
+      window.scrollTo({top:y,behavior:'instant'});
+    }
+    this.reset();
+  });
+}
 
 /* ============ PARTICLE NETWORK CANVAS ============ */
 const canvas=document.getElementById('bg-canvas');
@@ -107,7 +146,8 @@ window.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;});
 
 function initParticles(){
   particles=[];
-  const count=Math.floor((w*h)/16000);
+  const density = w<720 ? 30000 : 16000;
+  const count=Math.floor((w*h)/density);
   for(let i=0;i<count;i++){
     particles.push({
       x:Math.random()*w, y:Math.random()*h,
