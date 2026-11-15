@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#060608">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>AnkleGaming Private Limited | App, Web &amp; Software Development Company</title>
 <meta name="description" content="AnkleGaming Private Limited builds Android &amp; iOS apps, websites, web applications, SaaS platforms and custom software. 190+ projects delivered, 45+ expert developers, 8+ years of experience.">
 <link rel="canonical" href="https://ankle-gaming-website.onrender.com/">
@@ -21,10 +22,11 @@
 <meta name="twitter:image" content="https://ankle-gaming-website.onrender.com/assets/gallery8.jpeg">
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="apple-touch-icon" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
 <!-- CSS -->
 <link rel="stylesheet" href="css/style.css">
@@ -39,6 +41,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 </head>
 <body>
+
+<a href="#home" class="skip-link">Skip to main content</a>
 
 <!-- PRELOADER -->
 <div id="preloader">
@@ -537,7 +541,7 @@
       </ul></div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 AnkleGaming Private Limited. All rights reserved.</span>
+      <span>© <span id="year">2025</span> AnkleGaming Private Limited. All rights reserved.</span>
       <span><a href="#contact">Contact</a><a href="#home">Back to Top</a></span>
     </div>
   </div>
