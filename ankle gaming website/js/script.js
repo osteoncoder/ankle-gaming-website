@@ -88,9 +88,15 @@ if(navBackdrop) navBackdrop.addEventListener('click',closeMenu);
 document.querySelectorAll('.navlink').forEach(l=>l.addEventListener('click',closeMenu));
 document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeMenu(); });
 window.addEventListener('resize',()=>{ if(window.innerWidth>900) closeMenu(); });
+/* never leave the page scroll-locked after a bfcache restore / orientation flip */
+window.addEventListener('pageshow',closeMenu);
+window.addEventListener('orientationchange',()=>setTimeout(closeMenu,150));
 
 /* ============ SCROLL REVEAL ============ */
 const revealEls=document.querySelectorAll('.reveal');
+if(!('IntersectionObserver' in window)){
+  revealEls.forEach(el=>el.classList.add('in'));
+}
 const io=new IntersectionObserver((entries)=>{
   entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('in'),i*60); io.unobserve(e.target);} });
 },{threshold:.15});
