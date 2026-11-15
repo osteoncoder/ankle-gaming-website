@@ -310,15 +310,5 @@ function draw(){
   requestAnimationFrame(draw);
 }
 draw();
-
-/* ============ GSAP HERO ENTRANCE ============ */
-/* GSAP is now deferred, so it may load after this file — wait for it. */
-function initHeroAnim(){
-  if(!window.gsap) return;
-  gsap.from('.hero h1',{y:40,opacity:0,duration:1,delay:.2,ease:'power3.out'});
-  gsap.from('.hero p',{y:30,opacity:0,duration:1,delay:.35,ease:'power3.out'});
-  gsap.from('.hero-cta',{y:30,opacity:0,duration:1,delay:.5,ease:'power3.out'});
-  gsap.from('.rating-badge',{y:20,opacity:0,duration:1,delay:.65,ease:'power3.out'});
-}
-if(window.gsap){ initHeroAnim(); }
-else{ window.addEventListener('load',()=>{ if(window.gsap) initHeroAnim(); }); }
+/* Hero entrance is handled purely in CSS (.hero h1 etc. + @keyframes heroIn).
+   GSAP was removed: it was ~50KB over a third-party CDN for three tweens. */
