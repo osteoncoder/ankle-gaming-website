@@ -1,8 +1,13 @@
 /* ============ PRELOADER ============ */
-window.addEventListener('load',()=>{
-  document.getElementById('preBarFill').style.width='100%';
-  setTimeout(()=>document.getElementById('preloader').classList.add('done'),700);
-});
+function hidePreloader(){
+  const fill=document.getElementById('preBarFill');
+  const pre=document.getElementById('preloader');
+  if(fill) fill.style.width='100%';
+  if(pre) pre.classList.add('done');
+}
+window.addEventListener('load',()=>setTimeout(hidePreloader,700));
+/* fail-safe: never trap the visitor behind the overlay on a slow phone */
+setTimeout(hidePreloader,3500);
 
 /* ============ INPUT CAPABILITY ============ */
 const finePointer = window.matchMedia('(hover:hover) and (pointer:fine)').matches;

@@ -16,7 +16,7 @@
   --radius:20px;
   --ease:cubic-bezier(.16,.84,.44,1);
 }
-html{scroll-behavior:smooth;scroll-padding-top:96px;-webkit-text-size-adjust:100%;}
+html{scroll-behavior:smooth;scroll-padding-top:96px;-webkit-text-size-adjust:100%;overflow-x:hidden;}
 body{
   background:var(--bg);
   color:var(--text);
@@ -61,12 +61,13 @@ button{font-family:inherit;border:none;background:none;cursor:none;}
 .cursor.hover{width:64px;height:64px;background:rgba(0,255,157,.08);border-color:var(--green);}
 
 /* ===================== PRELOADER ===================== */
-#preloader{
+#preloader{animation:preAutoHide .6s ease 3.5s forwards;
   position:fixed;inset:0;background:var(--bg);z-index:10000;
   display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;
   transition:opacity .8s var(--ease),visibility .8s;
 }
-#preloader.done{opacity:0;visibility:hidden;}
+#preloader.done{opacity:0;visibility:hidden;pointer-events:none;}
+@keyframes preAutoHide{to{opacity:0;visibility:hidden;pointer-events:none;}}
 .pre-logo{font-size:2rem;font-weight:700;letter-spacing:1px;}
 .pre-logo span{color:var(--green);}
 .pre-bar{width:220px;height:3px;background:rgba(255,255,255,.1);border-radius:10px;overflow:hidden;}
@@ -79,7 +80,7 @@ button{font-family:inherit;border:none;background:none;cursor:none;}
 #progress{position:fixed;top:0;left:0;height:3px;width:0%;background:var(--grad);background-size:200% auto;animation:gradShift 3s linear infinite;z-index:9997;}
 
 /* ===================== BLOBS ===================== */
-.blob{position:absolute;border-radius:50%;filter:blur(90px);mix-blend-mode:screen;opacity:.55;z-index:0;pointer-events:none;}
+.blob{position:absolute;max-width:100vw;max-height:100vw;border-radius:50%;filter:blur(90px);mix-blend-mode:screen;opacity:.55;z-index:0;pointer-events:none;}
 .blob1{width:480px;height:480px;background:var(--green);top:-120px;left:-120px;animation:float1 14s ease-in-out infinite;}
 .blob2{width:420px;height:420px;background:var(--purple);top:200px;right:-150px;animation:float2 16s ease-in-out infinite;}
 .blob3{width:380px;height:380px;background:var(--blue);bottom:-150px;left:30%;animation:float1 18s ease-in-out infinite reverse;}
@@ -372,6 +373,9 @@ footer{border-top:1px solid var(--border);padding:80px 0 30px;position:relative;
     background:rgba(6,6,8,.94);
     -webkit-backdrop-filter:none;backdrop-filter:none;
   }
+  /* the drawer + its backdrop must never be washed out by the header bar */
+  body.menu-open header,
+  body.menu-open header.scrolled{background:transparent;border-bottom-color:transparent;}
   .logo{font-size:1.15rem;}
 
   .nav-cta{gap:10px;}
@@ -392,10 +396,10 @@ footer{border-top:1px solid var(--border);padding:80px 0 30px;position:relative;
     position:fixed;top:0;right:0;height:100vh;height:100dvh;width:min(86%,330px);
     display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch;
     gap:2px;padding:calc(26px + env(safe-area-inset-top)) 20px calc(28px + env(safe-area-inset-bottom));
-    background:rgba(10,10,15,.98);
+    background:#0b0b11;
     -webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
     border-left:1px solid var(--border);box-shadow:-30px 0 70px rgba(0,0,0,.55);
-    transform:translateX(102%);visibility:hidden;z-index:1001;
+    transform:translateX(102%);visibility:hidden;z-index:1005;
     transition:transform .4s var(--ease),visibility .4s;
     overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;
   }
@@ -446,8 +450,8 @@ footer{border-top:1px solid var(--border);padding:80px 0 30px;position:relative;
 /* ---------- PHONES ---------- */
 @media(max-width:720px){
   section{padding:72px 0;}
+  .blob{pointer-events:none;filter:blur(70px);opacity:.42;}
   #bg-canvas{opacity:.34;}
-  .blob{filter:blur(70px);opacity:.42;}
 
   /* HERO — everything centred + safe from the fixed header */
   .hero{min-height:auto;padding:calc(102px + env(safe-area-inset-top)) 0 60px;}
@@ -476,6 +480,7 @@ footer{border-top:1px solid var(--border);padding:80px 0 30px;position:relative;
   .trusted-head{font-size:.68rem;letter-spacing:1.6px;margin-bottom:24px;color:#aeb5c2;}
 
   /* CARDS — centred content */
+  .grid-6,.grid-3{grid-template-columns:1fr;}
   .grid-6{gap:16px;}
   .card{padding:28px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;}
   .icon-box{margin-inline:auto;margin-bottom:18px;}
