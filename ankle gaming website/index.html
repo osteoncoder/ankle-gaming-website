@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#060608">
 <title>AnkleGaming | We Build Digital Products That Scale</title>
 <meta name="description" content="AnkleGaming Private Limited — Mobile App, Web, AI & Software Development Company.">
 
@@ -11,6 +12,12 @@
 
 <!-- CSS -->
 <link rel="stylesheet" href="css/style.css">
+<noscript><style>
+  /* without JS the reveal animations and preloader would hide the whole page */
+  #preloader{display:none!important;}
+  .reveal{opacity:1!important;transform:none!important;}
+  .counter{visibility:visible;}
+</style></noscript>
 
 <!-- GSAP -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -20,7 +27,7 @@
 
 <!-- PRELOADER -->
 <div id="preloader">
-  <div class="pre-logo">AnkleGaming</span></div>
+  <div class="pre-logo">Ankle<span>Gaming</span></div>
   <div class="pre-bar"><i id="preBarFill"></i></div>
 </div>
 
@@ -35,6 +42,7 @@
   <nav class="container">
     <a href="#home" class="logo"><span class="dot"></span>AnkleGaming</a>
     <ul class="nav-links" id="navLinks">
+      <li class="nav-close-item"><button class="nav-close" id="navClose" type="button" aria-label="Close menu">&#10005;</button></li>
       <li><a href="#expertise" class="navlink">Expertise</a></li>
       <li><a href="#services" class="navlink">Services</a></li>
       <li><a href="#industries" class="navlink">Industries</a></li>
@@ -44,10 +52,12 @@
     </ul>
     <div class="nav-cta">
       <a href="#contact" class="btn btn-outline btn-sm magnetic">Get Consultation</a>
-      <div class="burger" id="burger"><span></span><span></span><span></span></div>
+      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
     </div>
   </nav>
 </header>
+
+<div class="nav-backdrop" id="navBackdrop"></div>
 
 <main id="home">
 
@@ -77,10 +87,18 @@
   <!-- TRUSTED BY -->
   <section style="padding:60px 0;">
     <div class="container">
-      <p class="section-head" style="margin-bottom:34px;color:var(--muted);font-size:.85rem;letter-spacing:2px;text-transform:uppercase;">Trusted by forward-thinking teams</p>
+      <p class="trusted-head">Trusted by forward-thinking teams</p>
     </div>
     <div class="marquee-wrap">
       <div class="marquee" id="marquee1">
+        <div class="logo-pill">◆ NOVA LABS</div>
+        <div class="logo-pill">▲ VERTEX</div>
+        <div class="logo-pill">● ORBITAL</div>
+        <div class="logo-pill">■ ZENITH</div>
+        <div class="logo-pill">◆ PIXELCORE</div>
+        <div class="logo-pill">▲ BLUEWAVE</div>
+        <div class="logo-pill">● QUANTECH</div>
+        <div class="logo-pill">■ HYPERLOOP</div>
         <div class="logo-pill">◆ NOVA LABS</div>
         <div class="logo-pill">▲ VERTEX</div>
         <div class="logo-pill">● ORBITAL</div>
@@ -271,6 +289,18 @@
         <div class="logo-pill">🍃 MongoDB</div>
         <div class="logo-pill">🧠 TensorFlow</div>
         <div class="logo-pill">🎨 Figma</div>
+        <div class="logo-pill">⚛️ React</div>
+        <div class="logo-pill">▲ Next.js</div>
+        <div class="logo-pill">🦋 Flutter</div>
+        <div class="logo-pill">📱 React Native</div>
+        <div class="logo-pill">🟢 Node.js</div>
+        <div class="logo-pill">🐍 Python</div>
+        <div class="logo-pill">☁️ AWS</div>
+        <div class="logo-pill">🔷 Azure</div>
+        <div class="logo-pill">🔥 Firebase</div>
+        <div class="logo-pill">🍃 MongoDB</div>
+        <div class="logo-pill">🧠 TensorFlow</div>
+        <div class="logo-pill">🎨 Figma</div>
       </div>
     </div>
   </section>
@@ -342,7 +372,7 @@
           </div>
           <input type="text" placeholder="Subject">
           <textarea placeholder="Tell us about your project..."></textarea>
-          <button type="submit" class="btn btn-primary magnetic" style="align-self:flex-start;">Send Message →</button>
+          <button type="submit" class="btn btn-primary magnetic btn-submit">Send Message →</button>
           <p class="form-msg" id="formMsg">✅ Thanks! We'll get back to you within 24 hours.</p>
         </form>
       </div>
