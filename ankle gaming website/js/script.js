@@ -1,3 +1,7 @@
+/* ============ FOOTER YEAR (never goes stale) ============ */
+const yearEl=document.getElementById('year');
+if(yearEl) yearEl.textContent=new Date().getFullYear();
+
 /* ============ PRELOADER ============ */
 function hidePreloader(){
   const fill=document.getElementById('preBarFill');
@@ -55,14 +59,33 @@ if(finePointer){
 const header=document.getElementById('header');
 const progress=document.getElementById('progress');
 const scrollTopBtn=document.getElementById('scrollTop');
-window.addEventListener('scroll',()=>{
-  header.classList.toggle('scrolled',window.scrollY>40);
-  const h=document.documentElement;
-  const pct=(h.scrollTop)/(h.scrollHeight-h.clientHeight)*100;
-  progress.style.width=pct+'%';
-  scrollTopBtn.classList.toggle('show',window.scrollY>500);
+/* rAF-throttled: read layout at most once per frame instead of on every scroll tick */
+let scrollQueued=false;
+function onScroll(){
+  if(scrollQueued) return;
+  scrollQueued=true;
+  requestAnimationFrame(()=>{
+    header.classList.toggle('scrolled',window.scrollY>40);
+    const h=document.documentElement;
+    const max=h.scrollHeight-h.clientHeight;
+    const pct=max>0?(h.scrollTop/max)*100:0;
+    progress.style.width=pct+'%';
+    scrollTopBtn.classList.toggle('show',window.scrollY>500);
+    scrollQueued=false;
+  });
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+onScroll();
+scrollTopBtn.addEventListener('click',()=>{
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});
 });
-scrollTopBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+scrollTopBtn.setAttribute('role','button');
+scrollTopBtn.setAttribute('tabindex','0');
+scrollTopBtn.setAttribute('aria-label','Back to top');
+scrollTopBtn.addEventListener('keydown',e=>{
+  if(e.key==='Enter'||e.key===' '){ e.preventDefault(); scrollTopBtn.click(); }
+});
 
 /* ============ MOBILE MENU ============ */
 const burger=document.getElementById('burger'),
@@ -126,22 +149,111 @@ function showSlide(i){
   slides[i].classList.add('active'); dots[i].classList.add('active'); active=i;
 }
 dots.forEach(d=>d.addEventListener('click',()=>showSlide(+d.dataset.i)));
-setInterval(()=>showSlide((active+1)%slides.length),5000);
+
+const prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let sliderTimer=null;
+if(!prefersReduced && slides.length>1){
+  sliderTimer=setInterval(()=>showSlide((active+1)%slides.length),5000);
+  /* don't animate a slider nobody is looking at */
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden){ clearInterval(sliderTimer); sliderTimer=null; }
+    else if(!sliderTimer){
+      sliderTimer=setInterval(()=>showSlide((active+1)%slides.length),5000);
+    }
+  });
+}
 
 /* ============ CONTACT FORM ============ */
+/* ============ CONTACT FORM: real validation + real submission ============
+   Nothing is faked. If no Web3Forms access key is configured we tell the
+   user plainly instead of showing a false "Thanks" message. */
 const contactForm=document.getElementById('contactForm');
 if(contactForm){
-  contactForm.addEventListener('submit',function(e){
+  const msg=document.getElementById('formMsg');
+  const setMsg=(text,state)=>{ if(!msg) return; msg.textContent=text; msg.className='form-msg'+(state?' '+state:''); msg.style.display=text?'block':'none'; };
+
+  const showError=(field,text)=>{
+    const wrap=field.closest('.field');
+    const slot=wrap && wrap.querySelector('.field-error');
+    if(wrap) wrap.classList.add('invalid');
+    if(slot) slot.textContent=text;
+  };
+  const clearError=(field)=>{
+    const wrap=field.closest('.field');
+    const slot=wrap && wrap.querySelector('.field-error');
+    if(wrap) wrap.classList.remove('invalid');
+    if(slot) slot.textContent='';
+  };
+
+  const validators={
+    cfName: v => v.trim().length>=2 ? '' : 'Please enter your name.',
+    cfEmail: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? '' : 'Please enter a valid email address.',
+    cfPhone: v => (v.trim()==='' || /^[+0-9][0-9\s-]{7,15}$/.test(v.trim())) ? '' : 'Please enter a valid phone number.',
+    cfMessage: v => v.trim().length>=10 ? '' : 'Please tell us a little about your project (at least 10 characters).'
+  };
+
+  Object.keys(validators).forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el) return;
+    el.addEventListener('blur',()=>{
+      const err=validators[id](el.value);
+      err ? showError(el,err) : clearError(el);
+    });
+    el.addEventListener('input',()=>{ if(el.closest('.field').classList.contains('invalid')) clearError(el); });
+  });
+
+  contactForm.addEventListener('submit',async function(e){
     e.preventDefault();
-    const msg=document.getElementById('formMsg');
-    if(msg){
-      msg.style.display='block';
-      /* reveal the message without scrolling the tapped button away */
-      const y=window.scrollY;
-      msg.scrollIntoView({block:'nearest',behavior:'smooth'});
-      window.scrollTo({top:y,behavior:'instant'});
+
+    /* honeypot: silently drop bot submissions */
+    const hp=this.querySelector('[name="botcheck"]');
+    if(hp && hp.checked) return;
+
+    let firstBad=null;
+    Object.keys(validators).forEach(id=>{
+      const el=document.getElementById(id);
+      if(!el) return;
+      const err=validators[id](el.value);
+      if(err){ showError(el,err); if(!firstBad) firstBad=el; }
+      else clearError(el);
+    });
+
+    if(firstBad){ firstBad.focus({preventScroll:true}); setMsg('Please fix the highlighted fields and try again.','error'); return; }
+
+    const key=(this.dataset.accessKey||'').trim();
+    if(!key){
+      setMsg('Form is not connected yet — no submissions would be received. Please email info@anklegaming.com or use WhatsApp for now.','error');
+      return;
     }
-    this.reset();
+
+    const btn=this.querySelector('button[type="submit"]');
+    const label=btn ? btn.textContent : '';
+    if(btn){ btn.disabled=true; btn.textContent='Sending…'; }
+    setMsg('Sending your message…','pending');
+
+    try{
+      const payload=new FormData(this);
+      payload.append('access_key',key);
+      payload.append('subject','New enquiry from anklegaming.com');
+      payload.delete('botcheck');
+      const res=await fetch('https://api.web3forms.com/submit',{
+        method:'POST',
+        headers:{'Accept':'application/json'},
+        body:payload
+      });
+      const data=await res.json().catch(()=>({}));
+      if(res.ok && data.success){
+        setMsg("✅ Thanks! Your message has been sent. We'll get back to you within 24 hours.");
+        this.reset();
+        Object.keys(validators).forEach(id=>{ const el=document.getElementById(id); if(el) clearError(el); });
+      }else{
+        throw new Error(data.message||'Submission failed');
+      }
+    }catch(err){
+      setMsg('Sorry, something went wrong while sending. Please try WhatsApp or email info@anklegaming.com.','error');
+    }finally{
+      if(btn){ btn.disabled=false; btn.textContent=label; }
+    }
   });
 }
 
@@ -157,7 +269,8 @@ window.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;});
 
 function initParticles(){
   particles=[];
-  const density = w<720 ? 30000 : 16000;
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const density = reduceMotion ? 90000 : (w<720 ? 30000 : 16000);
   const count=Math.floor((w*h)/density);
   for(let i=0;i<count;i++){
     particles.push({
@@ -169,7 +282,12 @@ function initParticles(){
 }
 initParticles(); window.addEventListener('resize',initParticles);
 
+/* stop burning CPU when the tab is in the background */
+let canvasPaused=false;
+document.addEventListener('visibilitychange',()=>{ canvasPaused=document.hidden; });
+
 function draw(){
+  if(canvasPaused){ requestAnimationFrame(draw); return; }
   ctx.clearRect(0,0,w,h);
   for(let i=0;i<particles.length;i++){
     const p=particles[i];
@@ -192,10 +310,5 @@ function draw(){
   requestAnimationFrame(draw);
 }
 draw();
-
-/* ============ GSAP HERO ENTRANCE ============ */
-if(window.gsap){
-  gsap.from('.hero h1',{y:40,opacity:0,duration:1,delay:.3,ease:'power3.out'});
-  gsap.from('.hero p',{y:30,opacity:0,duration:1,delay:.5,ease:'power3.out'});
-  gsap.from('.hero-cta',{y:30,opacity:0,duration:1,delay:.7,ease:'power3.out'});
-}
+/* Hero entrance is handled purely in CSS (.hero h1 etc. + @keyframes heroIn).
+   GSAP was removed: it was ~50KB over a third-party CDN for three tweens. */
