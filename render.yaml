@@ -30,3 +30,9 @@ services:
       - path: /*
         name: Strict-Transport-Security
         value: max-age=31536000; includeSubDomains
+      # Always revalidate so new deploys are visible immediately instead of
+      # being hidden behind a stale browser cache (assets are additionally
+      # cache-busted with ?v= query versions in the HTML).
+      - path: /*
+        name: Cache-Control
+        value: no-cache
