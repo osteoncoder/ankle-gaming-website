@@ -1,0 +1,32 @@
+# Render deployment for the AnkleGaming website (static site).
+#
+# NOTE: This file documents the intended deployment. If the existing Render
+# service was created from the dashboard (Root Directory = "ankle gaming
+# website", no build command, Publish Directory = "."), it keeps working
+# exactly as before — render.yaml is only applied when a service is created
+# or synced as a Blueprint. In that case this file reproduces the same site
+# and additionally applies the security headers below (the _headers file in
+# the site folder is Netlify-format and is ignored by Render).
+services:
+  - type: web
+    name: ankle-gaming-website
+    env: static
+    rootDir: ankle gaming website
+    buildCommand: ""
+    staticPublishPath: .
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*
+        name: Permissions-Policy
+        value: geolocation=(), microphone=(), camera=()
+      - path: /*
+        name: Strict-Transport-Security
+        value: max-age=31536000; includeSubDomains
