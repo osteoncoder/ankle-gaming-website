@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#060608">
+<meta name="theme-color" content="#04070d">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>AnkleGaming | App, Web &amp; Software Development Company</title>
-<meta name="description" content="AnkleGaming Private Limited builds Android &amp; iOS apps, websites, web applications, SaaS platforms and custom software. 190+ projects delivered, 45+ expert developers, 8+ years of experience.">
+<title>AnkleGaming Private Limited | App, Web, AI &amp; Software Development Company</title>
+<meta name="description" content="AnkleGaming Private Limited builds Android & iOS apps, websites, web applications, AI solutions, SaaS platforms and custom software. 190+ projects delivered, 45+ expert developers, 8+ years of experience.">
 <link rel="canonical" href="https://ankle-gaming-website.onrender.com/">
 
 <!-- Open Graph / social sharing -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AnkleGaming Private Limited">
-<meta property="og:title" content="AnkleGaming Private Limited | App, Web &amp; Software Development Company">
-<meta property="og:description" content="Android &amp; iOS apps, websites, web applications, SaaS platforms and custom software. 190+ projects delivered by 45+ experts over 8+ years.">
+<meta property="og:title" content="AnkleGaming Private Limited | App, Web, AI & Software Development Company">
+<meta property="og:description" content="Android & iOS apps, websites, web applications, AI solutions, SaaS platforms and custom software. 190+ projects delivered by 45+ experts over 8+ years.">
 <meta property="og:url" content="https://ankle-gaming-website.onrender.com/">
 <meta property="og:image" content="https://ankle-gaming-website.onrender.com/assets/gallery8.jpeg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AnkleGaming Private Limited | App, Web &amp; Software Development">
-<meta name="twitter:description" content="Android &amp; iOS apps, websites, web apps, SaaS and custom software. 190+ projects, 45+ developers, 8+ years.">
+<meta name="twitter:title" content="AnkleGaming Private Limited | App, Web & Software Development">
+<meta name="twitter:description" content="Android & iOS apps, websites, web apps, SaaS and custom software. 190+ projects, 45+ developers, 8+ years.">
 <meta name="twitter:image" content="https://ankle-gaming-website.onrender.com/assets/gallery8.jpeg">
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -28,532 +28,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
-<!-- CSS -->
 <link rel="stylesheet" href="css/style.css">
 <noscript><style>
   /* without JS the reveal animations and preloader would hide the whole page */
   #preloader{display:none!important;}
   .reveal{opacity:1!important;transform:none!important;}
-  .counter{visibility:visible;}
+  .assistant-panel{display:none!important;}
 </style></noscript>
-
-<!-- No third-party JS: hero entrance is done in CSS (see .hero-in in style.css).
-     Removing GSAP cuts ~50KB, one external request and one supply-chain risk. -->
-</head>
-<body>
-
-<a href="#home" class="skip-link">Skip to main content</a>
-
-<!-- PRELOADER -->
-<div id="preloader">
-  <div class="pre-logo">Ankle<span>Gaming</span></div>
-  <div class="pre-bar"><i id="preBarFill"></i></div>
-</div>
-
-<div class="noise"></div>
-<div id="progress"></div>
-<canvas id="bg-canvas"></canvas>
-<div class="cursor" id="cursor"></div>
-<div class="cursor-dot" id="cursorDot"></div>
-
-<!-- NAVBAR -->
-<header id="header">
-  <nav class="container">
-    <a href="#home" class="logo"><span class="dot"></span>AnkleGaming</a>
-    <ul class="nav-links" id="navLinks">
-      <li class="nav-close-item"><button class="nav-close" id="navClose" type="button" aria-label="Close menu">&#10005;</button></li>
-      <li><a href="#expertise" class="navlink">Expertise</a></li>
-      <li><a href="#services" class="navlink">Services</a></li>
-      <li><a href="#industries" class="navlink">Industries</a></li>
-      <li><a href="#work" class="navlink">Work</a></li>
-      <li><a href="#about" class="navlink">About</a></li>
-      <li><a href="#contact" class="navlink">Contact</a></li>
-    </ul>
-    <div class="nav-cta">
-      <a href="#contact" class="btn btn-outline btn-sm magnetic">Get Consultation</a>
-      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
-    </div>
-  </nav>
-</header>
-
-<div class="nav-backdrop" id="navBackdrop"></div>
-
-<main id="home">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="blob blob1"></div>
-    <div class="blob blob2"></div>
-    <div class="blob blob3"></div>
-    <div class="container">
-      <div class="badge reveal in"><span class="dot2"></span> Trusted Software Partner · 190+ Projects Delivered</div>
-      <h1 class="reveal in">We Build Digital Products <br> That <span class="grad-text">Scale &amp; Perform</span></h1>
-      <p class="reveal in">AnkleGaming Private Limited is a full-stack product studio crafting mobile apps, web platforms, AI solutions &amp; enterprise software for ambitious brands worldwide.</p>
-      <div class="hero-cta reveal in">
-        <a href="#contact" class="btn btn-primary magnetic">🚀 Start Your Project</a>
-        <a href="https://wa.me/919599734137?text=Hi%20AnkleGaming%2C%20I%27d%20like%20to%20discuss%20a%20project." class="btn btn-outline magnetic" target="_blank" rel="noopener">💬 WhatsApp Us</a>
-      </div>
-      <div class="rating-badge reveal in">
-        <span>⭐ <strong>4.8</strong> Rating on Google</span>
-        <span class="rating-sep">|</span>
-        <span>⭐ <strong>4.9</strong> Rating on Justdial</span>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><div class="stat-num"><span class="counter" data-target="190">0</span>+</div><p>Projects Delivered</p></div>
-        <div class="stat"><div class="stat-num"><span class="counter" data-target="45">0</span>+</div><p>Expert Developers</p></div>
-        <div class="stat"><div class="stat-num"><span class="counter" data-target="8">0</span>+</div><p>Years Experience</p></div>
-        <div class="stat"><div class="stat-num"><span class="counter" data-target="12">0</span></div><p>Services Offered</p></div>
-      </div>
-    </div>
-    <div class="scroll-indicator"><span>SCROLL</span><div class="mouse"><i></i></div></div>
-  </section>
-
-  <!-- TRUSTED BY -->
-  <section class="brands-section">
-    <div class="container">
-      <p class="trusted-head">Brands We Work With</p>
-    </div>
-    <div class="marquee-wrap">
-      <div class="marquee" id="marquee1">
-        <div class="logo-pill brand-pill">Hitachi</div>
-        <div class="logo-pill brand-pill">Godrej</div>
-        <div class="logo-pill brand-pill">Bikanervala</div>
-        <div class="logo-pill brand-pill">Libas</div>
-        <div class="logo-pill brand-pill">Winzo</div>
-        <div class="logo-pill brand-pill">Meesho</div>
-        <div class="logo-pill brand-pill">Lehar</div>
-        <div class="logo-pill brand-pill">Apsara Sarees</div>
-        <div class="logo-pill brand-pill">Diamond</div>
-        <div class="logo-pill brand-pill">Hitachi</div>
-        <div class="logo-pill brand-pill">Godrej</div>
-        <div class="logo-pill brand-pill">Bikanervala</div>
-        <div class="logo-pill brand-pill">Libas</div>
-        <div class="logo-pill brand-pill">Winzo</div>
-        <div class="logo-pill brand-pill">Meesho</div>
-        <div class="logo-pill brand-pill">Lehar</div>
-        <div class="logo-pill brand-pill">Apsara Sarees</div>
-        <div class="logo-pill brand-pill">Diamond</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERTISE -->
-  <section id="expertise">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">What We Do</span>
-        <h2>Our Expertise</h2>
-        <p>End-to-end digital capabilities under one roof — from idea to scalable product.</p>
-      </div>
-      <div class="grid-6">
-        <div class="card tilt-card reveal"><div class="icon-box">📱</div><h3>Mobile App Development</h3><p>Native &amp; cross-platform apps built with Flutter, React Native, Swift &amp; Kotlin.</p><span class="arrow">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2"/></svg></span></div>
-        <div class="card tilt-card reveal"><div class="icon-box">🌐</div><h3>Web Development</h3><p>Fast, SEO-ready websites &amp; web apps using React, Next.js and modern stacks.</p><span class="arrow">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2"/></svg></span></div>
-        <div class="card tilt-card reveal"><div class="icon-box">🤖</div><h3>AI Development</h3><p>Chatbots, Generative AI, automation &amp; ML systems that drive real ROI.</p><span class="arrow">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2"/></svg></span></div>
-        <div class="card tilt-card reveal"><div class="icon-box">💻</div><h3>Software Development</h3><p>Custom enterprise software &amp; API ecosystems engineered for scale.</p><span class="arrow">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2"/></svg></span></div>
-        <div class="card tilt-card reveal"><div class="icon-box">☁️</div><h3>SaaS Development</h3><p>Multi-tenant SaaS platforms with subscriptions, dashboards &amp; billing baked in.</p><span class="arrow">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2"/></svg></span></div>
-        <div class="card tilt-card reveal"><div class="icon-box">⚡</div><h3>Digital Transformation</h3><p>Modernize legacy systems with cloud, automation &amp; data-driven strategy.</p><span class="arrow">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2"/></svg></span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES OVERVIEW -->
-  <section id="services">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Services</span>
-        <h2>Our Services Overview</h2>
-        <p>One studio. Every capability you need to launch and grow.</p>
-      </div>
-      <div class="pills reveal">
-        <span class="pill">📱 Android App Development</span>
-        <span class="pill">🍎 iOS App Development</span>
-        <span class="pill">🧩 Cross Platform Development</span>
-        <span class="pill">🌐 Website Development</span>
-        <span class="pill">💻 Web Application Development</span>
-        <span class="pill">🧠 AI / ML Development</span>
-        <span class="pill">📝 WordPress Development</span>
-        <span class="pill">🎨 UI / UX Design</span>
-        <span class="pill">🎮 Game Development</span>
-        <span class="pill">☁️ SaaS Development</span>
-        <span class="pill">⚙️ Software Development</span>
-        <span class="pill">🗂️ CRM / CMS Development</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- INDUSTRIES -->
-  <section id="industries">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Industries</span>
-        <h2>Industries We Serve</h2>
-        <p>Deep domain experience across high-growth sectors.</p>
-      </div>
-    </div>
-    <div class="marquee-wrap marquee-wrap--spaced">
-      <div class="marquee">
-        <div class="chip"><b>01</b> Healthcare</div>
-        <div class="chip"><b>02</b> Gaming</div>
-        <div class="chip"><b>03</b> Real Estate</div>
-        <div class="chip"><b>04</b> E-commerce</div>
-        <div class="chip"><b>05</b> Restaurant</div>
-        <div class="chip"><b>06</b> Fintech</div>
-        <div class="chip"><b>01</b> Healthcare</div>
-        <div class="chip"><b>02</b> Gaming</div>
-        <div class="chip"><b>03</b> Real Estate</div>
-        <div class="chip"><b>04</b> E-commerce</div>
-        <div class="chip"><b>05</b> Restaurant</div>
-        <div class="chip"><b>06</b> Fintech</div>
-      </div>
-    </div>
-    <div class="marquee-wrap">
-      <div class="marquee reverse">
-        <div class="chip"><b>07</b> Education</div>
-        <div class="chip"><b>08</b> Travel</div>
-        <div class="chip"><b>09</b> Automobile</div>
-        <div class="chip"><b>10</b> Logistics</div>
-        <div class="chip"><b>11</b> Entertainment</div>
-        <div class="chip"><b>12</b> Social Networking</div>
-        <div class="chip"><b>07</b> Education</div>
-        <div class="chip"><b>08</b> Travel</div>
-        <div class="chip"><b>09</b> Automobile</div>
-        <div class="chip"><b>10</b> Logistics</div>
-        <div class="chip"><b>11</b> Entertainment</div>
-        <div class="chip"><b>12</b> Social Networking</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CASE STUDIES -->
-  <section id="work">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Our Work</span>
-        <h2>Featured Case Studies</h2>
-        <p>A glimpse into products we've designed, engineered &amp; shipped.</p>
-      </div>
-      <div class="grid-3">
-
-        <!-- Verified content: real team photo, no invented project names or metrics -->
-        <div class="case-card reveal">
-          <div class="case-thumb">
-            <img src="assets/gallery8.jpeg" alt="AnkleGaming team at work" loading="lazy">
-          </div>
-          <div class="case-body">
-            <span class="case-tag">Our Team</span>
-            <h3>Leadership &amp; Vision</h3>
-            <p>The team driving AnkleGaming's engineering excellence forward.</p>
-            <div class="tags"><span>Strategy</span><span>Product</span><span>Growth</span></div>
-          </div>
-        </div>
-
-        <div class="case-card reveal case-card--placeholder">
-          <div class="case-thumb"><span class="ph-icon">📱</span></div>
-          <div class="case-body">
-            <span class="case-tag">Mobile Apps</span>
-            <h3>Android &amp; iOS Applications</h3>
-            <p>Custom mobile applications built for performance and scalability.</p>
-            <div class="tags"><span>Flutter</span><span>React Native</span><span>Kotlin</span></div>
-          </div>
-        </div>
-
-        <div class="case-card reveal case-card--placeholder">
-          <div class="case-thumb"><span class="ph-icon">🌐</span></div>
-          <div class="case-body">
-            <span class="case-tag">Web &amp; SaaS</span>
-            <h3>Websites, Portals &amp; SaaS Platforms</h3>
-            <p>Professional websites, dashboards and scalable subscription platforms.</p>
-            <div class="tags"><span>React</span><span>Node.js</span><span>SaaS</span></div>
-          </div>
-        </div>
-
-        <div class="case-card reveal case-card--placeholder">
-          <div class="case-thumb"><span class="ph-icon">🎮</span></div>
-          <div class="case-body">
-            <span class="case-tag">Game Development</span>
-            <h3>Mobile &amp; Web Games</h3>
-            <p>Engaging mobile and web games with smooth graphics and gameplay.</p>
-            <div class="tags"><span>Unity</span><span>WebGL</span><span>2D / 3D</span></div>
-          </div>
-        </div>
-
-        <div class="case-card reveal case-card--placeholder">
-          <div class="case-thumb"><span class="ph-icon">🛒</span></div>
-          <div class="case-body">
-            <span class="case-tag">E-commerce</span>
-            <h3>E-commerce &amp; CMS Platforms</h3>
-            <p>Online stores and content platforms built for growth and SEO.</p>
-            <div class="tags"><span>WordPress</span><span>CMS</span><span>Payments</span></div>
-          </div>
-        </div>
-
-        <div class="case-card reveal case-card--placeholder">
-          <div class="case-thumb"><span class="ph-icon">🎨</span></div>
-          <div class="case-body">
-            <span class="case-tag">Design &amp; Branding</span>
-            <h3>UI / UX &amp; Brand Design</h3>
-            <p>Interfaces and brand systems designed for clarity and conversion.</p>
-            <div class="tags"><span>Figma</span><span>UI / UX</span><span>Branding</span></div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY CHOOSE US -->
-  <section id="about">
-    <div class="container">
-      <div class="why-grid">
-        <div class="reveal">
-          <span class="eyebrow">Why AnkleGaming</span>
-          <h2 class="why-title">Why Choose AnkleGaming</h2>
-          <div class="why-list">
-            <div class="why-item"><div class="why-num">01</div><div><h3 class="why-item-title">Experienced Developers</h3><p>Senior engineers with deep expertise across modern tech stacks.</p></div></div>
-            <div class="why-item"><div class="why-num">02</div><div><h3 class="why-item-title">Latest Technology</h3><p>We build with cutting-edge frameworks, AI &amp; cloud infrastructure.</p></div></div>
-            <div class="why-item"><div class="why-num">03</div><div><h3 class="why-item-title">Transparent Process</h3><p>Clear communication, sprint reviews &amp; full project visibility.</p></div></div>
-            <div class="why-item"><div class="why-num">04</div><div><h3 class="why-item-title">On-Time Delivery</h3><p>We respect deadlines and ship production-ready products, fast.</p></div></div>
-            <div class="why-item"><div class="why-num">05</div><div><h3 class="why-item-title">Long-Term Support</h3><p>Post-launch maintenance &amp; scaling support whenever you need it.</p></div></div>
-          </div>
-        </div>
-        <div class="why-visual reveal">
-          <div class="mini-stat"><h3><span class="counter" data-target="190">0</span>+</h3><p>Projects Delivered</p></div>
-          <div class="mini-stat"><h3><span class="counter" data-target="45">0</span>+</h3><p>Expert Developers</p></div>
-          <div class="mini-stat"><h3><span class="counter" data-target="8">0</span>+</h3><p>Years Experience</p></div>
-          <div class="mini-stat"><h3><span class="counter" data-target="12">0</span></h3><p>Services Offered</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TECH STACK -->
-  <section>
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Technology</span>
-        <h2>Our Technology Stack</h2>
-      </div>
-    </div>
-    <div class="marquee-wrap">
-      <div class="marquee">
-        <div class="logo-pill">⚛️ React</div>
-        <div class="logo-pill">▲ Next.js</div>
-        <div class="logo-pill">🦋 Flutter</div>
-        <div class="logo-pill">📱 React Native</div>
-        <div class="logo-pill">🟢 Node.js</div>
-        <div class="logo-pill">🐍 Python</div>
-        <div class="logo-pill">☁️ AWS</div>
-        <div class="logo-pill">🔷 Azure</div>
-        <div class="logo-pill">🔥 Firebase</div>
-        <div class="logo-pill">🍃 MongoDB</div>
-        <div class="logo-pill">🧠 TensorFlow</div>
-        <div class="logo-pill">🎨 Figma</div>
-        <div class="logo-pill">⚛️ React</div>
-        <div class="logo-pill">▲ Next.js</div>
-        <div class="logo-pill">🦋 Flutter</div>
-        <div class="logo-pill">📱 React Native</div>
-        <div class="logo-pill">🟢 Node.js</div>
-        <div class="logo-pill">🐍 Python</div>
-        <div class="logo-pill">☁️ AWS</div>
-        <div class="logo-pill">🔷 Azure</div>
-        <div class="logo-pill">🔥 Firebase</div>
-        <div class="logo-pill">🍃 MongoDB</div>
-        <div class="logo-pill">🧠 TensorFlow</div>
-        <div class="logo-pill">🎨 Figma</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section>
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Testimonials</span>
-        <h2>What Our Clients Say</h2>
-      </div>
-      <div class="testi-wrap reveal">
-        <div class="testi-slide active">
-          <div class="stars">★★★★★</div>
-          <p class="quote">"Excellent mobile development service."</p>
-          <div class="testi-user"><div class="avatar">NG</div><div><h3 class="testi-name">Naveen Gupta</h3><span>Startup Founder</span></div></div>
-        </div>
-        <div class="testi-slide">
-          <div class="stars">★★★★★</div>
-          <p class="quote">"Great UI design and professional work."</p>
-          <div class="testi-user"><div class="avatar">RA</div><div><h3 class="testi-name">Rajesh Aggraval</h3><span>Tech Entrepreneur</span></div></div>
-        </div>
-        <div class="testi-slide">
-          <div class="stars">★★★★★</div>
-          <p class="quote">"Very responsive team and quality delivery."</p>
-          <div class="testi-user"><div class="avatar">JK</div><div><h3 class="testi-name">Jatin Kumanr</h3><span>Business Owner</span></div></div>
-        </div>
-        <div class="testi-slide">
-          <div class="stars">★★★★★</div>
-          <p class="quote">"Highly recommended development partner."</p>
-          <div class="testi-user"><div class="avatar">PS</div><div><h3 class="testi-name">Pankaj Sharma</h3><span>Product Manager</span></div></div>
-        </div>
-        <div class="testi-slide">
-          <div class="stars">★★★★★</div>
-          <p class="quote">"Professional and very supportive developers."</p>
-          <div class="testi-user"><div class="avatar">AQ</div><div><h3 class="testi-name">Ashu Qureshi</h3><span>CEO</span></div></div>
-        </div>
-        <div class="testi-slide">
-          <div class="stars">★★★★★</div>
-          <p class="quote">"Outstanding work quality and communication."</p>
-          <div class="testi-user"><div class="avatar">AT</div><div><h3 class="testi-name">Abhishek Taneja</h3><span>Founder</span></div></div>
-        </div>
-        <div class="testi-dots">
-          <button type="button" class="active" data-i="0" aria-label="Testimonial 1"></button>
-          <button type="button" class="" data-i="1" aria-label="Testimonial 2"></button>
-          <button type="button" class="" data-i="2" aria-label="Testimonial 3"></button>
-          <button type="button" class="" data-i="3" aria-label="Testimonial 4"></button>
-          <button type="button" class="" data-i="4" aria-label="Testimonial 5"></button>
-          <button type="button" class="" data-i="5" aria-label="Testimonial 6"></button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA BANNER -->
-  <section>
-    <div class="container">
-      <div class="cta-banner reveal">
-        <h2>Ready to Build Something <span class="grad-text">Amazing?</span></h2>
-        <p>Let's turn your vision into a scalable, beautifully engineered product.</p>
-        <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary magnetic">Start Your Project</a>
-          <a href="https://wa.me/919599734137?text=Hi%20AnkleGaming%2C%20I%27d%20like%20a%20free%20consultation." class="btn btn-outline magnetic" target="_blank" rel="noopener">💬 WhatsApp Consultation</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Get In Touch</span>
-        <h2>Let's Start a Conversation</h2>
-        <p>Tell us about your project — we'll respond within 24 hours.</p>
-      </div>
-      <div class="contact-grid reveal">
-        <div class="contact-info">
-          <div class="info-item"><div class="ic">📧</div><div><h3 class="info-title">Email</h3><p><a href="mailto:info@anklegaming.com">info@anklegaming.com</a></p></div></div>
-          <div class="info-item"><div class="ic">📞</div><div><h3 class="info-title">Phone</h3><p><a href="tel:+919599734137">+91&nbsp;95997&nbsp;34137</a></p></div></div>
-          <div class="info-item"><div class="ic">📍</div><div><h3 class="info-title">Office</h3><p>WZ 77, Ram Garh Colony, Basai Dara Pur, Bali Nagar, New Delhi, Delhi 110015</p><p class="info-note">Remote-first · serving clients globally</p></div></div>
-        </div>
-        <!--
-          HOW TO MAKE THIS FORM LIVE (2 minutes, free):
-          1. Sign up at https://web3forms.com and copy your Access Key.
-          2. Paste it into data-access-key below.
-          Until a key is added the form will NOT silently pretend to succeed: it shows
-          clear validation errors and tells you where to add the key.
-        -->
-        <form id="contactForm" data-access-key="" novalidate>
-          <div class="field">
-            <label for="cfName">Your Name *</label>
-            <input type="text" id="cfName" name="name" placeholder="Your full name" autocomplete="name" required>
-            <span class="field-error" data-error-for="cfName"></span>
-          </div>
-          <div class="row2">
-            <div class="field">
-              <label for="cfEmail">Your Email *</label>
-              <input type="email" id="cfEmail" name="email" placeholder="you@example.com" autocomplete="email" required>
-              <span class="field-error" data-error-for="cfEmail"></span>
-            </div>
-            <div class="field">
-              <label for="cfPhone">Phone / WhatsApp</label>
-              <input type="tel" id="cfPhone" name="phone" placeholder="+91 00000 00000" autocomplete="tel">
-              <span class="field-error" data-error-for="cfPhone"></span>
-            </div>
-          </div>
-          <div class="field">
-            <label for="cfService">Service Required</label>
-            <select id="cfService" name="service">
-              <option value="">Select a service</option>
-              <option>Android App Development</option>
-              <option>iOS App Development</option>
-              <option>Cross Platform Development</option>
-              <option>Website Development</option>
-              <option>Web Application Development</option>
-              <option>AI / ML Development</option>
-              <option>WordPress Development</option>
-              <option>UI / UX Design</option>
-              <option>Game Development</option>
-              <option>SaaS Development</option>
-              <option>Software Development</option>
-              <option>CRM / CMS Development</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="cfMessage">Project Details *</label>
-            <textarea id="cfMessage" name="message" placeholder="Tell us about your project..." required></textarea>
-            <span class="field-error" data-error-for="cfMessage"></span>
-          </div>
-          <!-- honeypot: hidden from humans, bots fill it in -->
-          <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" aria-hidden="true">
-          <button type="submit" class="btn btn-primary magnetic btn-submit">Send Message →</button>
-          <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
-          <p class="form-alt">Prefer WhatsApp? <a href="https://wa.me/919599734137?text=Hi%20AnkleGaming%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener">Chat with us now →</a></p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="#home" class="logo">AnkleGaming</a>
-        <p>A full-stack product studio building mobile apps, web platforms, AI &amp; enterprise software for ambitious brands.</p>
-        <div class="social">
-          <a href="mailto:info@anklegaming.com" aria-label="Email AnkleGaming" title="Email">✉</a>
-          <a href="tel:+919599734137" aria-label="Call AnkleGaming" title="Call">☎</a>
-          <a href="https://wa.me/919599734137" target="_blank" rel="noopener" aria-label="WhatsApp AnkleGaming" title="WhatsApp">💬</a>
-        </div>
-      </div>
-      <div class="fcol"><h4>Company</h4><ul>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#work">Our Work</a></li>
-        <li><a href="#contact">Careers</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul></div>
-      <div class="fcol"><h4>Services</h4><ul>
-        <li><a href="#services">Mobile Apps</a></li>
-        <li><a href="#services">Web Development</a></li>
-        <li><a href="#services">AI Development</a></li>
-        <li><a href="#services">SaaS Development</a></li>
-      </ul></div>
-      <div class="fcol"><h4>Industries</h4><ul>
-        <li><a href="#industries">Healthcare</a></li>
-        <li><a href="#industries">Fintech</a></li>
-        <li><a href="#industries">E-commerce</a></li>
-        <li><a href="#industries">Gaming</a></li>
-      </ul></div>
-      <div class="fcol"><h4>Legal</h4><ul>
-        <li><a href="#contact">Terms &amp; Conditions</a></li>
-        <li><a href="#contact">Privacy Policy</a></li>
-        <li><a href="#contact">Refund Policy</a></li>
-        <li><a href="#contact">Cookie Policy</a></li>
-      </ul></div>
-    </div>
-    <div class="footer-bottom">
-      <span>© <span id="year">2025</span> AnkleGaming Private Limited. All rights reserved.</span>
-      <span><a href="#contact">Contact</a><a href="#home">Back to Top</a></span>
-    </div>
-  </div>
-</footer>
-
-<div class="scrolltop" id="scrollTop">↑</div>
-
-<!-- STICKY MOBILE CTA: one-tap call / WhatsApp, the main conversion path in India -->
-<div class="mobile-cta" id="mobileCta">
-  <a href="tel:+919599734137" class="mc-btn mc-call">☎ Call Now</a>
-  <a href="https://wa.me/919599734137?text=Hi%20AnkleGaming%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener" class="mc-btn mc-wa">💬 WhatsApp</a>
-</div>
 
 <!-- Structured data: only verified company facts -->
 <script type="application/ld+json">
@@ -577,8 +58,888 @@
   "sameAs": []
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "AnkleGaming Private Limited",
+  "url": "https://ankle-gaming-website.onrender.com/"
+}
+</script>
+</head>
+<body>
 
-<!-- JS -->
+<a href="#home" class="skip-link">Skip to main content</a>
+
+<!-- PRELOADER -->
+<div id="preloader" aria-hidden="true">
+  <div class="pre-logo">Ankle<span>Gaming</span></div>
+  <div class="pre-bar"><i id="preBarFill"></i></div>
+</div>
+
+<div class="noise" aria-hidden="true"></div>
+<div id="progress" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<!-- NAVBAR -->
+<header id="header">
+  <nav class="container" aria-label="Main navigation">
+    <a href="#home" class="logo" aria-label="AnkleGaming — home">
+      <svg class="logo-mark" width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lgm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2e7cf6"/><stop offset="1" stop-color="#38bdf8"/></linearGradient></defs><rect width="64" height="64" rx="14" fill="#0a1424"/><path d="M32 12 L52 50 H42.5 L32 29 L21.5 50 H12 Z" fill="url(#lgm)"/><circle cx="32" cy="42" r="3.4" fill="#eaf2ff"/></svg>
+      <span class="logo-word">Ankle<em>Gaming</em></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li class="nav-close-item"><button class="nav-close" id="navClose" type="button" aria-label="Close menu">&#10005;</button></li>
+      <li><a href="#expertise" class="navlink">Expertise</a></li>
+      <li><a href="#services" class="navlink">Services</a></li>
+      <li><a href="#industries" class="navlink">Industries</a></li>
+      <li><a href="#work" class="navlink">Work</a></li>
+      <li><a href="#about" class="navlink">About</a></li>
+      <li><a href="#contact" class="navlink">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary btn-sm">Start Your Project</a>
+      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="nav-backdrop" id="navBackdrop"></div>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="home">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="badge reveal in"><span class="dot2"></span> Trusted Software Partner · 190+ Projects Delivered</div>
+        <h1 class="reveal in">We Build Digital Products That <span class="grad-text">Scale &amp; Perform.</span></h1>
+        <p class="reveal in">AnkleGaming Private Limited is a full-stack product studio crafting mobile apps, web platforms, AI solutions &amp; enterprise software for ambitious brands worldwide.</p>
+        <div class="hero-cta reveal in">
+          <a href="#contact" class="btn btn-primary">Start Your Project
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#work" class="btn btn-outline">Explore Our Work</a>
+        </div>
+        <div class="rating-badge reveal in" aria-label="Client ratings">
+          <span><span class="star" aria-hidden="true">★</span> <strong>4.8</strong> Rating on Google</span>
+          <span class="rating-sep" aria-hidden="true">|</span>
+          <span><span class="star" aria-hidden="true">★</span> <strong>4.9</strong> Rating on Justdial</span>
+        </div>
+      </div>
+
+      <!-- Interactive technology illustration: product dashboard + orbit -->
+      <div class="hero-visual reveal in" aria-hidden="true">
+        <div class="hv-orbit hv-orbit--outer"></div>
+        <div class="hv-orbit hv-orbit--inner"></div>
+
+        <div class="hv-card hv-dash" data-depth="10">
+          <div class="hv-dash-head">
+            <span class="hv-dot hv-dot--r"></span><span class="hv-dot hv-dot--y"></span><span class="hv-dot hv-dot--g"></span>
+            <span class="hv-dash-title">product.anklegaming</span>
+          </div>
+          <div class="hv-kpis">
+            <div class="hv-kpi"><span class="hv-kpi-num">190+</span><span class="hv-kpi-label">Projects shipped</span></div>
+            <div class="hv-kpi"><span class="hv-kpi-num">45+</span><span class="hv-kpi-label">Specialists</span></div>
+            <div class="hv-kpi"><span class="hv-kpi-num">24h</span><span class="hv-kpi-label">Response time</span></div>
+          </div>
+          <svg class="hv-chart" viewBox="0 0 300 110" fill="none" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="hvg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#38bdf8" stop-opacity=".35"/><stop offset="1" stop-color="#38bdf8" stop-opacity="0"/></linearGradient>
+              <linearGradient id="hvl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2e7cf6"/><stop offset="1" stop-color="#38bdf8"/></linearGradient>
+            </defs>
+            <path class="hv-area" d="M0 92 L36 78 L72 84 L108 58 L144 66 L180 40 L216 48 L252 22 L300 14 L300 110 L0 110 Z" fill="url(#hvg)"/>
+            <path class="hv-line" d="M0 92 L36 78 L72 84 L108 58 L144 66 L180 40 L216 48 L252 22 L300 14" stroke="url(#hvl)" stroke-width="2.5" stroke-linecap="round"/>
+            <circle class="hv-point" cx="252" cy="22" r="4" fill="#38bdf8"/>
+          </svg>
+          <div class="hv-bars"><i style="--h:38%"></i><i style="--h:62%"></i><i style="--h:48%"></i><i style="--h:78%"></i><i style="--h:58%"></i><i style="--h:88%"></i><i style="--h:70%"></i></div>
+        </div>
+
+        <div class="hv-chip hv-chip--app" data-depth="22">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M11 18.5h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          Flutter &amp; Native Apps
+        </div>
+        <div class="hv-chip hv-chip--ai" data-depth="30">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.8"/></svg>
+          AI Solutions
+        </div>
+        <div class="hv-chip hv-chip--cloud" data-depth="18">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 18a4.5 4.5 0 1 1 .6-8.96A5.5 5.5 0 0 1 18.3 11 3.8 3.8 0 0 1 17.5 18H7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          Cloud · AWS / Azure
+        </div>
+        <div class="hv-chip hv-chip--saas" data-depth="26">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18M8 21h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          SaaS Platforms
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="hero-stats reveal in">
+        <div class="stat"><div class="stat-num"><span class="counter" data-target="190">0</span>+</div><p>Projects Delivered</p></div>
+        <div class="stat"><div class="stat-num"><span class="counter" data-target="45">0</span>+</div><p>Expert Developers</p></div>
+        <div class="stat"><div class="stat-num"><span class="counter" data-target="8">0</span>+</div><p>Years Experience</p></div>
+        <div class="stat"><div class="stat-num"><span class="counter" data-target="12">0</span></div><p>Services Offered</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TRUSTED BY ================= -->
+  <section class="brands-section" aria-label="Brands we work with">
+    <div class="container">
+      <p class="trusted-head">Brands We Work With</p>
+    </div>
+    <div class="marquee-wrap">
+      <div class="marquee" id="marquee1">
+        <div class="logo-pill brand-pill">Hitachi</div>
+        <div class="logo-pill brand-pill">Godrej</div>
+        <div class="logo-pill brand-pill">Bikanervala</div>
+        <div class="logo-pill brand-pill">Libas</div>
+        <div class="logo-pill brand-pill">Winzo</div>
+        <div class="logo-pill brand-pill">Meesho</div>
+        <div class="logo-pill brand-pill">Lehar</div>
+        <div class="logo-pill brand-pill">Apsara Sarees</div>
+        <div class="logo-pill brand-pill">Diamond</div>
+        <div class="logo-pill brand-pill" aria-hidden="true">Hitachi</div>
+        <div class="logo-pill brand-pill" aria-hidden="true">Godrej</div>
+        <div class="logo-pill brand-pill" aria-hidden="true">Bikanervala</div>
+        <div class="logo-pill brand-pill" aria-hidden="true">Libas</div>
+        <div class="logo-pill brand-pill" aria-hidden="true">Winzo</div>
+        <div class="logo-pill brand-pill" aria-hidden="true">Meesho</div>
+        <div class="logo-pill brand-pill" aria-hidden="true">Lehar</div>
+        <div class="logo-pill brand-pill" aria-hidden="true">Apsara Sarees</div>
+        <div class="logo-pill brand-pill" aria-hidden="true">Diamond</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXPERTISE ================= -->
+  <section id="expertise">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">What We Do</span>
+        <h2>Our Expertise</h2>
+        <p>End-to-end digital capabilities under one roof — from idea to scalable product.</p>
+      </div>
+      <div class="grid-6">
+        <article class="card reveal">
+          <div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M11 18.5h2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+          <h3>Mobile App Development</h3>
+          <p>Native &amp; cross-platform apps built with Flutter, React Native, Swift &amp; Kotlin.</p>
+          <a href="#contact" class="arrow" data-enquire="Cross Platform Development">Discuss your app <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+        <article class="card reveal">
+          <div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M3 12h18M12 3c2.5 2.5 3.7 5.6 3.7 9S14.5 18.5 12 21c-2.5-2.5-3.7-5.6-3.7-9S9.5 5.5 12 3Z" stroke="currentColor" stroke-width="1.7"/></svg></div>
+          <h3>Web Development</h3>
+          <p>Fast, SEO-ready websites &amp; web apps using React, Next.js and modern stacks.</p>
+          <a href="#contact" class="arrow" data-enquire="Website Development">Discuss your website <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+        <article class="card reveal">
+          <div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.7"/></svg></div>
+          <h3>AI Development</h3>
+          <p>Chatbots, Generative AI, automation &amp; ML systems that drive real ROI.</p>
+          <a href="#contact" class="arrow" data-enquire="AI / ML Development">Discuss your AI idea <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+        <article class="card reveal">
+          <div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 6 3 12l5 6M16 6l5 6-5 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Software Development</h3>
+          <p>Custom enterprise software &amp; API ecosystems engineered for scale.</p>
+          <a href="#contact" class="arrow" data-enquire="Software Development">Discuss your software <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+        <article class="card reveal">
+          <div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 18a4.5 4.5 0 1 1 .6-8.96A5.5 5.5 0 0 1 18.3 11 3.8 3.8 0 0 1 17.5 18H7Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+          <h3>SaaS Development</h3>
+          <p>Multi-tenant SaaS platforms with subscriptions, dashboards &amp; billing baked in.</p>
+          <a href="#contact" class="arrow" data-enquire="SaaS Development">Discuss your SaaS <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+        <article class="card reveal">
+          <div class="icon-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5L13 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+          <h3>Digital Transformation</h3>
+          <p>Modernize legacy systems with cloud, automation &amp; data-driven strategy.</p>
+          <a href="#contact" class="arrow" data-enquire="Software Development">Modernize your stack <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Services</span>
+        <h2>Services, Engineered End to End</h2>
+        <p>Twelve specialised offerings — one accountable team. Select a service to start an enquiry with it pre-filled.</p>
+      </div>
+      <div class="grid-3 services-grid">
+
+        <article class="card service-card reveal">
+          <div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M11 18.5h2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+          <h3>Android App Development</h3>
+          <p>Native Kotlin Android apps engineered for performance across the full device ecosystem, from MVP to Play Store release.</p>
+          <div class="tags"><span>Kotlin</span><span>Play Store</span><span>Material Design</span></div>
+          <a href="#contact" class="arrow" data-enquire="Android App Development">Enquire <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+
+        <article class="card service-card reveal">
+          <div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M11 5h2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+          <h3>iOS App Development</h3>
+          <p>Native Swift iPhone &amp; iPad apps built to Apple Human Interface standards, with App Store submission handled end to end.</p>
+          <div class="tags"><span>Swift</span><span>App Store</span><span>SwiftUI</span></div>
+          <a href="#contact" class="arrow" data-enquire="iOS App Development">Enquire <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+
+        <article class="card service-card reveal">
+          <div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7"/></svg></div>
+          <h3>Cross Platform Development</h3>
+          <p>One codebase, every platform. Flutter &amp; React Native apps that cut build cost without compromising native feel.</p>
+          <div class="tags"><span>Flutter</span><span>React Native</span><span>Single Codebase</span></div>
+          <a href="#contact" class="arrow" data-enquire="Cross Platform Development">Enquire <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+
+        <article class="card service-card reveal">
+          <div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M3 12h18M12 3c2.5 2.5 3.7 5.6 3.7 9S14.5 18.5 12 21c-2.5-2.5-3.7-5.6-3.7-9S9.5 5.5 12 3Z" stroke="currentColor" stroke-width="1.7"/></svg></div>
+          <h3>Website Development</h3>
+          <p>Fast, SEO-ready corporate websites and landing pages designed to convert visitors into enquiries.</p>
+          <div class="tags"><span>React</span><span>Next.js</span><span>SEO</span></div>
+          <a href="#contact" class="arrow" data-enquire="Website Development">Enquire <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+
+        <article class="card service-card reveal">
+          <div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M3 9h18M8 21h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+          <h3>Web Application Development</h3>
+          <p>Dashboards, portals and internal tools with secure authentication, role-based access and real-time data.</p>
+          <div class="tags"><span>Dashboards</span><span>Portals</span><span>APIs</span></div>
+          <a href="#contact" class="arrow" data-enquire="Web Application Development">Enquire <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+
+        <article class="card service-card reveal">
+          <div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.7"/></svg></div>
+          <h3>AI / ML Development</h3>
+          <p>Chatbots, Generative AI features, workflow automation and ML models integrated into your existing products.</p>
+          <div class="tags"><span>GenAI</span><span>Chatbots</span><span>TensorFlow</span></div>
+          <a href="#contact" class="arrow" data-enquire="AI / ML Development">Enquire <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+
+        <article class="card service-card reveal">
+          <div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M4 19a2 2 0 0 1 2-2h13" stroke="currentColor" stroke-width="1.7"/></svg></div>
+          <h3>WordPress Development</h3>
+          <p>Custom WordPress themes, WooCommerce stores and content platforms your team can manage without developers.</p>
+          <div class="tags"><span>WordPress</span><span>WooCommerce</span><span>CMS</span></div>
+          <a href="#contact" class="arrow" data-enquire="WordPress Development">Enquire <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+
+        <article class="card service-card reveal">
+          <div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="11" cy="11" r="2" stroke="currentColor" stroke-width="1.7"/></svg></div>
+          <h3>UI / UX Design</h3>
+          <p>Research-driven product design — wireframes, interactive prototypes and Figma design systems that scale with your team.</p>
+          <div class="tags"><span>Figma</span><span>Prototyping</span><span>Design Systems</span></div>
+          <a href="#contact" class="arrow" data-enquire="UI / UX Design">Enquire <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+
+        <article class="card service-card reveal">
+          <div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9h4M8 7v4M15 10h.01M18 13h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M17.3 5H6.7a5.7 5.7 0 0 0-5.6 6.6l.9 4.6A3 3 0 0 0 6.4 18L9 15.5h6L17.6 18a3 3 0 0 0 4.4-1.8l.9-4.6A5.7 5.7 0 0 0 17.3 5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+          <h3>Game Development</h3>
+          <p>Engaging 2D/3D mobile and web games with smooth graphics, balanced gameplay and monetisation built in.</p>
+          <div class="tags"><span>Unity</span><span>WebGL</span><span>2D / 3D</span></div>
+          <a href="#contact" class="arrow" data-enquire="Game Development">Enquire <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+
+        <article class="card service-card reveal">
+          <div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 18a4.5 4.5 0 1 1 .6-8.96A5.5 5.5 0 0 1 18.3 11 3.8 3.8 0 0 1 17.5 18H7Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+          <h3>SaaS Development</h3>
+          <p>Multi-tenant SaaS platforms with subscription billing, admin dashboards and infrastructure that scales with your MRR.</p>
+          <div class="tags"><span>Multi-tenant</span><span>Billing</span><span>Dashboards</span></div>
+          <a href="#contact" class="arrow" data-enquire="SaaS Development">Enquire <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+
+        <article class="card service-card reveal">
+          <div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 6 3 12l5 6M16 6l5 6-5 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Software Development</h3>
+          <p>Custom enterprise software, integrations and API ecosystems engineered around your exact business process.</p>
+          <div class="tags"><span>Enterprise</span><span>APIs</span><span>Integrations</span></div>
+          <a href="#contact" class="arrow" data-enquire="Software Development">Enquire <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+
+        <article class="card service-card reveal">
+          <div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="8" ry="2.8" stroke="currentColor" stroke-width="1.7"/><path d="M4 5.5V12c0 1.5 3.6 2.8 8 2.8s8-1.3 8-2.8V5.5M4 12v6.5c0 1.5 3.6 2.8 8 2.8s8-1.3 8-2.8V12" stroke="currentColor" stroke-width="1.7"/></svg></div>
+          <h3>CRM / CMS Development</h3>
+          <p>Tailored CRM and CMS platforms that replace spreadsheets with automated pipelines, roles and reporting.</p>
+          <div class="tags"><span>CRM</span><span>CMS</span><span>Automation</span></div>
+          <a href="#contact" class="arrow" data-enquire="CRM / CMS Development">Enquire <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INDUSTRIES ================= -->
+  <section id="industries">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Industries</span>
+        <h2>Industries We Serve</h2>
+        <p>Deep domain experience across high-growth sectors.</p>
+      </div>
+      <div class="industries-grid">
+        <article class="industry-card reveal"><span class="ind-num">01</span><div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20.5S4 15.5 4 9.6A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.6c0 5.9-8 10.9-8 10.9Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 12h3l1.5-3 2 5L15 12h2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Healthcare</h3><p>Patient apps, telemedicine &amp; clinic management systems.</p></article>
+        <article class="industry-card reveal"><span class="ind-num">02</span><div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9h4M8 7v4M15 10h.01M18 13h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M17.3 5H6.7a5.7 5.7 0 0 0-5.6 6.6l.9 4.6A3 3 0 0 0 6.4 18L9 15.5h6L17.6 18a3 3 0 0 0 4.4-1.8l.9-4.6A5.7 5.7 0 0 0 17.3 5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div><h3>Gaming</h3><p>Mobile &amp; web games engineered for engagement and scale.</p></article>
+        <article class="industry-card reveal"><span class="ind-num">03</span><div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.5 21v-6h5v6M9 11h.01M15 11h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div><h3>Real Estate</h3><p>Listing portals, virtual tours &amp; CRM for builders and agents.</p></article>
+        <article class="industry-card reveal"><span class="ind-num">04</span><div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 4h2.5l2.4 12.2a1.8 1.8 0 0 0 1.8 1.5h7.9a1.8 1.8 0 0 0 1.8-1.4L21 8H6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="21" r="1" fill="currentColor"/><circle cx="18" cy="21" r="1" fill="currentColor"/></svg></div><h3>E-commerce</h3><p>Storefronts, marketplaces &amp; secure payment experiences.</p></article>
+        <article class="industry-card reveal"><span class="ind-num">05</span><div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 3v7a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V3M6 3v18M18 3c-1.7 1.2-2.5 3.2-2.5 5.5 0 2 1 3 2.5 3V21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Restaurant</h3><p>Online ordering, POS integrations &amp; loyalty applications.</p></article>
+        <article class="industry-card reveal"><span class="ind-num">06</span><div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M3 10h18M7 15h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M16 3.5 12 2 8 3.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Fintech</h3><p>Wallets, payment platforms &amp; data-rich finance dashboards.</p></article>
+        <article class="industry-card reveal"><span class="ind-num">07</span><div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4 2.5 8.5 12 13l9.5-4.5L12 4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M6 10.8V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.2M21.5 8.5V14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div><h3>Education</h3><p>LMS platforms, e-learning apps &amp; virtual classrooms.</p></article>
+        <article class="industry-card reveal"><span class="ind-num">08</span><div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10.5 13.5 3 11l1.5-1.5L11 11l4.5-6.5c.8-1 2.3-1 3 0 .6.9.5 2-.3 2.9L13 13l-1.5 6.5L10 21l.5-7.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div><h3>Travel</h3><p>Booking engines, itinerary apps &amp; travel marketplaces.</p></article>
+        <article class="industry-card reveal"><span class="ind-num">09</span><div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 16 5.6 9.6A2 2 0 0 1 7.5 8h9a2 2 0 0 1 1.9 1.6L20 16M4 16h16M4 16v4m16-4v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.5 13h.01M16.5 13h.01" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></div><h3>Automobile</h3><p>Dealer platforms, service booking &amp; fleet management.</p></article>
+        <article class="industry-card reveal"><span class="ind-num">10</span><div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2.5 6h11v10h-11zM13.5 10h4l3.5 3.5V16h-7.5" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="1.8" stroke="currentColor" stroke-width="1.7"/><circle cx="17" cy="18" r="1.8" stroke="currentColor" stroke-width="1.7"/></svg></div><h3>Logistics</h3><p>Live tracking, fleet &amp; warehouse management systems.</p></article>
+        <article class="industry-card reveal"><span class="ind-num">11</span><div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="m10.5 9.5 5 2.5-5 2.5v-5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div><h3>Entertainment</h3><p>Streaming, media &amp; content engagement platforms.</p></article>
+        <article class="industry-card reveal"><span class="ind-num">12</span><div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 19.5c.6-3 2.8-4.5 5.5-4.5s4.9 1.5 5.5 4.5M16 5.4a3.2 3.2 0 0 1 0 5.9M17.8 15.3c1.5.7 2.4 2 2.7 4.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div><h3>Social Networking</h3><p>Community platforms &amp; social apps built for retention.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WORK / CASE STUDIES ================= -->
+  <section id="work">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Our Work</span>
+        <h2>Featured Case Studies</h2>
+        <p>A glimpse into products we've designed, engineered &amp; shipped. Filter by capability and open any study for detail.</p>
+      </div>
+
+      <div class="work-filters reveal" role="group" aria-label="Filter case studies">
+        <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All Work</button>
+        <button type="button" class="filter-btn" data-filter="mobile" aria-pressed="false">Mobile Apps</button>
+        <button type="button" class="filter-btn" data-filter="web" aria-pressed="false">Web &amp; SaaS</button>
+        <button type="button" class="filter-btn" data-filter="games" aria-pressed="false">Games</button>
+        <button type="button" class="filter-btn" data-filter="ecommerce" aria-pressed="false">E-commerce</button>
+        <button type="button" class="filter-btn" data-filter="design" aria-pressed="false">Design</button>
+      </div>
+
+      <div class="grid-3" id="workGrid">
+
+        <!-- Verified content: real team photo, no invented project names or metrics -->
+        <article class="case-card reveal" data-cat="company">
+          <div class="case-thumb">
+            <img src="assets/gallery8.jpeg" alt="The AnkleGaming team together at the office" loading="lazy" decoding="async" width="732" height="1024">
+          </div>
+          <div class="case-body">
+            <span class="case-tag">Our Team</span>
+            <h3>Leadership &amp; Vision</h3>
+            <p>The team driving AnkleGaming's engineering excellence forward.</p>
+            <div class="tags"><span>Strategy</span><span>Product</span><span>Growth</span></div>
+            <button type="button" class="btn btn-outline btn-sm case-open" data-case="team">View Case Study</button>
+          </div>
+        </article>
+
+        <article class="case-card reveal" data-cat="mobile">
+          <div class="case-thumb case-thumb--visual" aria-hidden="true">
+            <svg width="72" height="72" viewBox="0 0 24 24" fill="none"><rect x="7" y="2" width="10" height="20" rx="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M11 18.5h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="case-body">
+            <span class="case-tag">Mobile Apps</span>
+            <h3>Android &amp; iOS Applications</h3>
+            <p>Custom mobile applications built for performance and scalability.</p>
+            <div class="tags"><span>Flutter</span><span>React Native</span><span>Kotlin</span></div>
+            <button type="button" class="btn btn-outline btn-sm case-open" data-case="mobile">View Case Study</button>
+          </div>
+        </article>
+
+        <article class="case-card reveal" data-cat="web">
+          <div class="case-thumb case-thumb--visual" aria-hidden="true">
+            <svg width="72" height="72" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M3 9h18M8 21h8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="case-body">
+            <span class="case-tag">Web &amp; SaaS</span>
+            <h3>Websites, Portals &amp; SaaS Platforms</h3>
+            <p>Professional websites, dashboards and scalable subscription platforms.</p>
+            <div class="tags"><span>React</span><span>Node.js</span><span>SaaS</span></div>
+            <button type="button" class="btn btn-outline btn-sm case-open" data-case="web">View Case Study</button>
+          </div>
+        </article>
+
+        <article class="case-card reveal" data-cat="games">
+          <div class="case-thumb case-thumb--visual" aria-hidden="true">
+            <svg width="72" height="72" viewBox="0 0 24 24" fill="none"><path d="M6 9h4M8 7v4M15 10h.01M18 13h.01" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M17.3 5H6.7a5.7 5.7 0 0 0-5.6 6.6l.9 4.6A3 3 0 0 0 6.4 18L9 15.5h6L17.6 18a3 3 0 0 0 4.4-1.8l.9-4.6A5.7 5.7 0 0 0 17.3 5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="case-body">
+            <span class="case-tag">Game Development</span>
+            <h3>Mobile &amp; Web Games</h3>
+            <p>Engaging mobile and web games with smooth graphics and gameplay.</p>
+            <div class="tags"><span>Unity</span><span>WebGL</span><span>2D / 3D</span></div>
+            <button type="button" class="btn btn-outline btn-sm case-open" data-case="games">View Case Study</button>
+          </div>
+        </article>
+
+        <article class="case-card reveal" data-cat="ecommerce">
+          <div class="case-thumb case-thumb--visual" aria-hidden="true">
+            <svg width="72" height="72" viewBox="0 0 24 24" fill="none"><path d="M3 4h2.5l2.4 12.2a1.8 1.8 0 0 0 1.8 1.5h7.9a1.8 1.8 0 0 0 1.8-1.4L21 8H6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="21" r="1" fill="currentColor"/><circle cx="18" cy="21" r="1" fill="currentColor"/></svg>
+          </div>
+          <div class="case-body">
+            <span class="case-tag">E-commerce</span>
+            <h3>E-commerce &amp; CMS Platforms</h3>
+            <p>Online stores and content platforms built for growth and SEO.</p>
+            <div class="tags"><span>WordPress</span><span>CMS</span><span>Payments</span></div>
+            <button type="button" class="btn btn-outline btn-sm case-open" data-case="ecommerce">View Case Study</button>
+          </div>
+        </article>
+
+        <article class="case-card reveal" data-cat="design">
+          <div class="case-thumb case-thumb--visual" aria-hidden="true">
+            <svg width="72" height="72" viewBox="0 0 24 24" fill="none"><path d="M12 19l7-7 3 3-7 7-3-3Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><circle cx="11" cy="11" r="2" stroke="currentColor" stroke-width="1.2"/></svg>
+          </div>
+          <div class="case-body">
+            <span class="case-tag">Design &amp; Branding</span>
+            <h3>UI / UX &amp; Brand Design</h3>
+            <p>Interfaces and brand systems designed for clarity and conversion.</p>
+            <div class="tags"><span>Figma</span><span>UI / UX</span><span>Branding</span></div>
+            <button type="button" class="btn btn-outline btn-sm case-open" data-case="design">View Case Study</button>
+          </div>
+        </article>
+
+      </div>
+      <p class="work-note reveal">Detailed client case studies are published with client permission. Talk to us about work relevant to your industry — <a href="#contact">request references</a>.</p>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS ================= -->
+  <section id="process" aria-label="Our delivery process">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">How We Work</span>
+        <h2>A Transparent Delivery Process</h2>
+        <p>Clear communication, sprint reviews &amp; full project visibility — from first call to long-term support.</p>
+      </div>
+      <ol class="process-steps">
+        <li class="process-step reveal"><span class="step-num">01</span><h3>Discover &amp; Strategy</h3><p>We map your goals, users and scope, then propose the right technology and roadmap.</p></li>
+        <li class="process-step reveal"><span class="step-num">02</span><h3>UX / UI Design</h3><p>Wireframes and interactive Figma prototypes you approve before a line of code is written.</p></li>
+        <li class="process-step reveal"><span class="step-num">03</span><h3>Development Sprints</h3><p>Agile sprints with regular demos, so you always know exactly where your product stands.</p></li>
+        <li class="process-step reveal"><span class="step-num">04</span><h3>Testing &amp; QA</h3><p>Device, performance and security testing before anything reaches your users.</p></li>
+        <li class="process-step reveal"><span class="step-num">05</span><h3>Launch &amp; Support</h3><p>Store submission, deployment and long-term maintenance &amp; scaling support.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">About Us</span>
+        <h2>The Studio Behind the Products</h2>
+        <p>AnkleGaming Private Limited — a New Delhi-based, remote-first technology company serving clients globally.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-photo reveal">
+          <img src="assets/gallery8.jpeg" alt="The AnkleGaming team at our office" loading="lazy" decoding="async" width="732" height="1024">
+          <div class="about-photo-badge"><strong>45+</strong><span>Expert Developers</span></div>
+        </div>
+        <div class="reveal">
+          <h3 class="about-title">Our Vision</h3>
+          <p class="about-text">We believe ambitious brands deserve engineering partners, not vendors. Our vision is to be the product studio businesses call when an idea has to become software that scales — designed beautifully, built honestly and supported for the long term.</p>
+          <p class="about-text">From our base in New Delhi, our 45+ specialists have delivered 190+ projects over 8+ years across mobile, web, AI, SaaS and games — with transparent sprints, senior engineers and a 4.8★ Google / 4.9★ Justdial client rating.</p>
+          <div class="why-list">
+            <div class="why-item"><div class="why-num">01</div><div><h4 class="why-item-title">Experienced Developers</h4><p>Senior engineers with deep expertise across modern tech stacks.</p></div></div>
+            <div class="why-item"><div class="why-num">02</div><div><h4 class="why-item-title">Latest Technology</h4><p>We build with cutting-edge frameworks, AI &amp; cloud infrastructure.</p></div></div>
+            <div class="why-item"><div class="why-num">03</div><div><h4 class="why-item-title">Transparent Process</h4><p>Clear communication, sprint reviews &amp; full project visibility.</p></div></div>
+            <div class="why-item"><div class="why-num">04</div><div><h4 class="why-item-title">On-Time Delivery</h4><p>We respect deadlines and ship production-ready products, fast.</p></div></div>
+            <div class="why-item"><div class="why-num">05</div><div><h4 class="why-item-title">Long-Term Support</h4><p>Post-launch maintenance &amp; scaling support whenever you need it.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Leadership: verified profiles to be added by the company (no invented people) -->
+      <div class="leadership reveal">
+        <h3 class="leadership-title">Leadership</h3>
+        <p class="leadership-note">Verified leadership profiles are being prepared by the company and will be published here.</p>
+        <div class="grid-3">
+          <div class="leader-card leader-card--placeholder">
+            <div class="leader-avatar" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.6" stroke="currentColor" stroke-width="1.5"/><path d="M4.5 20c.8-3.6 3.8-5.4 7.5-5.4s6.7 1.8 7.5 5.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <h4>Profile Coming Soon</h4><span>Founder / Leadership</span>
+            <p>Placeholder — AnkleGaming to add verified name, photo &amp; biography.</p>
+          </div>
+          <div class="leader-card leader-card--placeholder">
+            <div class="leader-avatar" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.6" stroke="currentColor" stroke-width="1.5"/><path d="M4.5 20c.8-3.6 3.8-5.4 7.5-5.4s6.7 1.8 7.5 5.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <h4>Profile Coming Soon</h4><span>Engineering Leadership</span>
+            <p>Placeholder — AnkleGaming to add verified name, photo &amp; biography.</p>
+          </div>
+          <div class="leader-card leader-card--placeholder">
+            <div class="leader-avatar" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.6" stroke="currentColor" stroke-width="1.5"/><path d="M4.5 20c.8-3.6 3.8-5.4 7.5-5.4s6.7 1.8 7.5 5.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <h4>Profile Coming Soon</h4><span>Design Leadership</span>
+            <p>Placeholder — AnkleGaming to add verified name, photo &amp; biography.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TECH STACK ================= -->
+  <section id="stack" aria-label="Technology stack">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Technology</span>
+        <h2>Our Technology Stack</h2>
+        <p>Modern, proven tooling — chosen per project, never for fashion.</p>
+      </div>
+      <div class="grid-3 stack-grid">
+        <article class="card stack-card reveal"><h3>Frontend</h3><div class="tags tags--lg"><span>React</span><span>Next.js</span></div><p>Fast, SEO-ready interfaces with modern React tooling.</p></article>
+        <article class="card stack-card reveal"><h3>Mobile</h3><div class="tags tags--lg"><span>Flutter</span><span>React Native</span><span>Swift</span><span>Kotlin</span></div><p>Native and cross-platform apps from a single senior team.</p></article>
+        <article class="card stack-card reveal"><h3>Backend</h3><div class="tags tags--lg"><span>Node.js</span><span>Python</span></div><p>Secure APIs and services engineered to scale.</p></article>
+        <article class="card stack-card reveal"><h3>Cloud &amp; Data</h3><div class="tags tags--lg"><span>AWS</span><span>Azure</span><span>Firebase</span><span>MongoDB</span></div><p>Cloud infrastructure, hosting and data layers that grow with you.</p></article>
+        <article class="card stack-card reveal"><h3>AI &amp; Games</h3><div class="tags tags--lg"><span>TensorFlow</span><span>Unity</span><span>WebGL</span></div><p>Machine learning features and real-time game experiences.</p></article>
+        <article class="card stack-card reveal"><h3>Design &amp; CMS</h3><div class="tags tags--lg"><span>Figma</span><span>WordPress</span></div><p>Design systems in Figma; manageable content platforms.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section id="testimonials" aria-label="Client testimonials">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Testimonials</span>
+        <h2>What Our Clients Say</h2>
+      </div>
+      <div class="testi-wrap reveal">
+        <div class="testi-slide active">
+          <div class="stars" aria-label="5 star review">★★★★★</div>
+          <p class="quote">"Excellent mobile development service."</p>
+          <div class="testi-user"><div class="avatar" aria-hidden="true">NG</div><div><h3 class="testi-name">Naveen Gupta</h3><span>Startup Founder</span></div></div>
+        </div>
+        <div class="testi-slide">
+          <div class="stars" aria-label="5 star review">★★★★★</div>
+          <p class="quote">"Great UI design and professional work."</p>
+          <div class="testi-user"><div class="avatar" aria-hidden="true">RA</div><div><h3 class="testi-name">Rajesh Aggraval</h3><span>Tech Entrepreneur</span></div></div>
+        </div>
+        <div class="testi-slide">
+          <div class="stars" aria-label="5 star review">★★★★★</div>
+          <p class="quote">"Very responsive team and quality delivery."</p>
+          <div class="testi-user"><div class="avatar" aria-hidden="true">JK</div><div><h3 class="testi-name">Jatin Kumanr</h3><span>Business Owner</span></div></div>
+        </div>
+        <div class="testi-slide">
+          <div class="stars" aria-label="5 star review">★★★★★</div>
+          <p class="quote">"Highly recommended development partner."</p>
+          <div class="testi-user"><div class="avatar" aria-hidden="true">PS</div><div><h3 class="testi-name">Pankaj Sharma</h3><span>Product Manager</span></div></div>
+        </div>
+        <div class="testi-slide">
+          <div class="stars" aria-label="5 star review">★★★★★</div>
+          <p class="quote">"Professional and very supportive developers."</p>
+          <div class="testi-user"><div class="avatar" aria-hidden="true">AQ</div><div><h3 class="testi-name">Ashu Qureshi</h3><span>CEO</span></div></div>
+        </div>
+        <div class="testi-slide">
+          <div class="stars" aria-label="5 star review">★★★★★</div>
+          <p class="quote">"Outstanding work quality and communication."</p>
+          <div class="testi-user"><div class="avatar" aria-hidden="true">AT</div><div><h3 class="testi-name">Abhishek Taneja</h3><span>Founder</span></div></div>
+        </div>
+        <div class="testi-dots" role="tablist" aria-label="Choose testimonial">
+          <button type="button" class="active" data-i="0" aria-label="Testimonial 1"></button>
+          <button type="button" data-i="1" aria-label="Testimonial 2"></button>
+          <button type="button" data-i="2" aria-label="Testimonial 3"></button>
+          <button type="button" data-i="3" aria-label="Testimonial 4"></button>
+          <button type="button" data-i="4" aria-label="Testimonial 5"></button>
+          <button type="button" data-i="5" aria-label="Testimonial 6"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section id="faq" aria-label="Frequently asked questions">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Quick answers — for anything else, ask our assistant or message us on WhatsApp.</p>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">What services does AnkleGaming offer?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1"><div class="faq-a-inner"><p>We offer Android &amp; iOS app development, cross-platform development (Flutter / React Native), website &amp; web application development, AI / ML development, WordPress development, UI / UX design, game development, SaaS development, custom software and CRM / CMS development.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">How do I start a project with you?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2"><div class="faq-a-inner"><p>Use the <a href="#contact">project enquiry form</a>, WhatsApp us on +91 95997 34137, or email info@anklegaming.com. We respond within 24 hours to schedule a discovery call and understand your goals.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">Which technologies do you work with?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3"><div class="faq-a-inner"><p>React, Next.js, Flutter, React Native, Swift, Kotlin, Node.js, Python, AWS, Azure, Firebase, MongoDB, TensorFlow, Unity and Figma — selected per project based on your requirements, not trends.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">Where are you located? Do you work with international clients?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4"><div class="faq-a-inner"><p>Our office is at WZ 77, Ram Garh Colony, Basai Dara Pur, Bali Nagar, New Delhi, Delhi 110015, India. We are remote-first and serve clients globally.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">How much will my project cost?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5"><div class="faq-a-inner"><p>Cost depends on scope, features and platforms. Share your requirements through the enquiry form (you can indicate a budget range) and our team will review and respond with next steps within 24 hours.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a6" id="faq-q6">Do you provide support after launch?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6"><div class="faq-a-inner"><p>Yes. Long-term support is one of our core commitments — post-launch maintenance and scaling support whenever you need it.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA BANNER ================= -->
+  <section aria-label="Start your project">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <h2>Ready to Build Something <span class="grad-text">Amazing?</span></h2>
+        <p>Let's turn your vision into a scalable, beautifully engineered product.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">Start Your Project</a>
+          <a href="https://wa.me/919599734137?text=Hi%20AnkleGaming%2C%20I%27d%20like%20a%20free%20consultation." class="btn btn-outline" target="_blank" rel="noopener">WhatsApp Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Get In Touch</span>
+        <h2>Let's Start a Conversation</h2>
+        <p>Tell us about your project — we'll respond within 24 hours.</p>
+      </div>
+      <div class="contact-grid reveal">
+        <div class="contact-info">
+          <div class="info-item">
+            <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="m3.5 6.5 8.5 6 8.5-6" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+            <div><h3 class="info-title">Email</h3><p><a href="mailto:info@anklegaming.com">info@anklegaming.com</a></p></div>
+          </div>
+          <div class="info-item">
+            <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+            <div><h3 class="info-title">Phone</h3><p><a href="tel:+919599734137">+91&nbsp;95997&nbsp;34137</a></p></div>
+          </div>
+          <div class="info-item">
+            <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="10" r="2.6" stroke="currentColor" stroke-width="1.7"/></svg></div>
+            <div><h3 class="info-title">Office</h3><p>WZ 77, Ram Garh Colony, Basai Dara Pur, Bali Nagar, New Delhi, Delhi 110015</p><p class="info-note">Remote-first · serving clients globally</p></div>
+          </div>
+          <div class="info-item info-item--wa">
+            <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.8L3.5 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 8.8c.3-.7 1.3-.8 1.7-.1l.5 1c.1.3 0 .6-.2.9l-.3.4a6.5 6.5 0 0 0 2.4 2.4l.4-.3c.3-.2.6-.3.9-.2l1 .5c.7.4.6 1.4-.1 1.7-2 .9-5.3-1.2-6.5-3.5-.5-1-.7-2-.8-3.8Z" fill="currentColor"/></svg></div>
+            <div><h3 class="info-title">WhatsApp</h3><p><a href="https://wa.me/919599734137?text=Hi%20AnkleGaming%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener">Chat with our team →</a></p></div>
+          </div>
+        </div>
+
+        <!--
+          HOW TO MAKE THIS FORM LIVE (2 minutes, free):
+          1. Sign up at https://web3forms.com and copy your Access Key.
+          2. Paste it as web3formsKey in SITE_CONFIG at the top of js/script.js
+             (the newsletter form in the footer uses the same key).
+          Until a key is added the form will NOT silently pretend to succeed: it shows
+          clear validation errors and tells the visitor how else to reach you.
+          The key is a public form key (safe to expose), NOT a private API secret.
+        -->
+        <form id="contactForm" novalidate>
+          <div class="field">
+            <label for="cfName">Your Name *</label>
+            <input type="text" id="cfName" name="name" placeholder="Your full name" autocomplete="name" required>
+            <span class="field-error" data-error-for="cfName"></span>
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label for="cfEmail">Your Email *</label>
+              <input type="email" id="cfEmail" name="email" placeholder="you@example.com" autocomplete="email" required>
+              <span class="field-error" data-error-for="cfEmail"></span>
+            </div>
+            <div class="field">
+              <label for="cfPhone">Phone / WhatsApp</label>
+              <input type="tel" id="cfPhone" name="phone" placeholder="+91 00000 00000" autocomplete="tel">
+              <span class="field-error" data-error-for="cfPhone"></span>
+            </div>
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label for="cfService">Service Required</label>
+              <select id="cfService" name="service">
+                <option value="">Select a service</option>
+                <option>Android App Development</option>
+                <option>iOS App Development</option>
+                <option>Cross Platform Development</option>
+                <option>Website Development</option>
+                <option>Web Application Development</option>
+                <option>AI / ML Development</option>
+                <option>WordPress Development</option>
+                <option>UI / UX Design</option>
+                <option>Game Development</option>
+                <option>SaaS Development</option>
+                <option>Software Development</option>
+                <option>CRM / CMS Development</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cfType">Enquiry Type</label>
+              <select id="cfType" name="project_type">
+                <option value="">Select enquiry type</option>
+                <option>New Project</option>
+                <option>Existing Product Enhancement</option>
+                <option>Dedicated Team / Staff Augmentation</option>
+                <option>Support &amp; Maintenance</option>
+                <option>Free Consultation</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="cfBudget">Indicative Budget <span class="label-opt">(optional)</span></label>
+            <select id="cfBudget" name="budget">
+              <option value="">Prefer to discuss</option>
+              <option>Under ₹2 Lakh</option>
+              <option>₹2 – 5 Lakh</option>
+              <option>₹5 – 15 Lakh</option>
+              <option>₹15 Lakh+</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cfMessage">Project Details *</label>
+            <textarea id="cfMessage" name="message" placeholder="Tell us about your project, goals and timeline..." required></textarea>
+            <span class="field-error" data-error-for="cfMessage"></span>
+          </div>
+          <!-- honeypot: hidden from humans, bots fill it in -->
+          <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" aria-hidden="true">
+          <button type="submit" class="btn btn-primary btn-submit" id="cfSubmit">Send Message
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+          <p class="form-alt">Prefer WhatsApp? <a href="https://wa.me/919599734137?text=Hi%20AnkleGaming%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener">Chat with us now →</a></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#home" class="logo" aria-label="AnkleGaming — back to top">
+          <svg class="logo-mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0a1424"/><path d="M32 12 L52 50 H42.5 L32 29 L21.5 50 H12 Z" fill="#38bdf8"/><circle cx="32" cy="42" r="3.4" fill="#eaf2ff"/></svg>
+          <span class="logo-word">Ankle<em>Gaming</em></span>
+        </a>
+        <p>A full-stack product studio building mobile apps, web platforms, AI &amp; enterprise software for ambitious brands.</p>
+        <div class="social">
+          <a href="mailto:info@anklegaming.com" aria-label="Email AnkleGaming" title="Email"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="m3.5 6.5 8.5 6 8.5-6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></a>
+          <a href="tel:+919599734137" aria-label="Call AnkleGaming" title="Call"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></a>
+          <a href="https://wa.me/919599734137" target="_blank" rel="noopener" aria-label="WhatsApp AnkleGaming" title="WhatsApp"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.8L3.5 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></a>
+        </div>
+        <form id="newsletterForm" class="newsletter" novalidate>
+          <label for="nlEmail">Get product &amp; engineering insights</label>
+          <div class="newsletter-row">
+            <input type="email" id="nlEmail" name="email" placeholder="Your email address" autocomplete="email" aria-describedby="nlMsg">
+            <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+          </div>
+          <p class="form-msg" id="nlMsg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <div class="fcol"><h4>Company</h4><ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#work">Our Work</a></li>
+        <li><a href="mailto:info@anklegaming.com?subject=Career%20Enquiry%20—%20AnkleGaming">Careers (Email Us)</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul></div>
+      <div class="fcol"><h4>Services</h4><ul>
+        <li><a href="#services">Mobile Apps</a></li>
+        <li><a href="#services">Web Development</a></li>
+        <li><a href="#services">AI Development</a></li>
+        <li><a href="#services">SaaS Development</a></li>
+      </ul></div>
+      <div class="fcol"><h4>Industries</h4><ul>
+        <li><a href="#industries">Healthcare</a></li>
+        <li><a href="#industries">Fintech</a></li>
+        <li><a href="#industries">E-commerce</a></li>
+        <li><a href="#industries">Gaming</a></li>
+      </ul></div>
+      <div class="fcol"><h4>Legal</h4><ul>
+        <li><a href="terms.html">Terms &amp; Conditions</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="refund.html">Refund Policy</a></li>
+        <li><a href="cookies.html">Cookie Policy</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> AnkleGaming Private Limited. All rights reserved.</span>
+      <span><a href="#contact">Contact</a><a href="#home">Back to Top</a></span>
+    </div>
+  </div>
+</footer>
+
+<button type="button" class="scrolltop" id="scrollTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<!-- STICKY MOBILE CTA: one-tap call / WhatsApp, the main conversion path in India -->
+<div class="mobile-cta" id="mobileCta">
+  <a href="tel:+919599734137" class="mc-btn mc-call">Call Now</a>
+  <a href="https://wa.me/919599734137?text=Hi%20AnkleGaming%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener" class="mc-btn mc-wa">WhatsApp</a>
+</div>
+
+<!-- ================= CASE STUDY MODAL ================= -->
+<div class="modal-backdrop" id="caseBackdrop" hidden></div>
+<div class="modal" id="caseModal" role="dialog" aria-modal="true" aria-labelledby="caseModalTitle" hidden>
+  <button type="button" class="modal-close" id="caseClose" aria-label="Close case study">&#10005;</button>
+  <span class="case-tag" id="caseModalTag"></span>
+  <h3 id="caseModalTitle"></h3>
+  <p class="modal-lead" id="caseModalLead"></p>
+  <h4>What We Build</h4>
+  <ul class="modal-list" id="caseModalList"></ul>
+  <h4>Technology</h4>
+  <div class="tags tags--lg" id="caseModalTags"></div>
+  <p class="modal-note">This showcase describes our delivery capability in this category. Detailed client case studies are published with client permission.</p>
+  <div class="modal-actions">
+    <a href="#contact" class="btn btn-primary" id="caseModalCta">Start a Similar Project</a>
+    <button type="button" class="btn btn-outline" id="caseModalBack">Back to Work</button>
+  </div>
+</div>
+
+<!-- ================= AI ASSISTANT ================= -->
+<div class="assistant" id="assistant">
+  <div class="assistant-panel" id="assistantPanel" role="dialog" aria-label="AnkleGaming website assistant" hidden>
+    <div class="assistant-head">
+      <div class="assistant-id">
+        <span class="assistant-avatar" aria-hidden="true">A</span>
+        <div><strong>Ask Ankle</strong><span>Instant answers from our website</span></div>
+      </div>
+      <button type="button" class="assistant-close" id="assistantClose" aria-label="Close assistant">&#10005;</button>
+    </div>
+    <div class="assistant-body" id="assistantBody" aria-live="polite"></div>
+    <div class="assistant-chips" id="assistantChips">
+      <button type="button" data-q="What services do you offer?">Our services</button>
+      <button type="button" data-q="How do I start a project?">Start a project</button>
+      <button type="button" data-q="How much does a project cost?">Pricing</button>
+      <button type="button" data-q="How can I contact you?">Contact details</button>
+    </div>
+    <form class="assistant-form" id="assistantForm">
+      <label class="sr-only" for="assistantInput">Ask a question about AnkleGaming</label>
+      <input type="text" id="assistantInput" placeholder="Ask about services, process, contact..." autocomplete="off" maxlength="300">
+      <button type="submit" class="assistant-send" aria-label="Send message">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12 20 4l-4.5 16-3.8-6.8L4 12Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M11.7 13.2 20 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </form>
+  </div>
+  <button type="button" class="assistant-fab" id="assistantFab" aria-expanded="false" aria-controls="assistantPanel">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12a9 9 0 1 1-4.4-7.7L21 3l-1.2 4.3c.8 1.4 1.2 3 1.2 4.7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 11h.01M12 11h.01M16 11h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+    <span>Ask Ankle</span>
+  </button>
+</div>
+
+<!-- FAQ structured data (mirrors the visible FAQ above) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What services does AnkleGaming offer?", "acceptedAnswer": {"@type": "Answer", "text": "Android & iOS app development, cross-platform development (Flutter / React Native), website & web application development, AI / ML development, WordPress development, UI / UX design, game development, SaaS development, custom software and CRM / CMS development."}},
+    {"@type": "Question", "name": "How do I start a project with you?", "acceptedAnswer": {"@type": "Answer", "text": "Use the project enquiry form, WhatsApp +91 95997 34137, or email info@anklegaming.com. We respond within 24 hours to schedule a discovery call."}},
+    {"@type": "Question", "name": "Which technologies do you work with?", "acceptedAnswer": {"@type": "Answer", "text": "React, Next.js, Flutter, React Native, Swift, Kotlin, Node.js, Python, AWS, Azure, Firebase, MongoDB, TensorFlow, Unity and Figma."}},
+    {"@type": "Question", "name": "Where are you located? Do you work with international clients?", "acceptedAnswer": {"@type": "Answer", "text": "WZ 77, Ram Garh Colony, Basai Dara Pur, Bali Nagar, New Delhi, Delhi 110015, India. We are remote-first and serve clients globally."}},
+    {"@type": "Question", "name": "How much will my project cost?", "acceptedAnswer": {"@type": "Answer", "text": "Cost depends on scope, features and platforms. Share your requirements through the enquiry form and our team will review and respond with next steps within 24 hours."}},
+    {"@type": "Question", "name": "Do you provide support after launch?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — post-launch maintenance and scaling support whenever you need it."}}
+  ]
+}
+</script>
+
 <script src="js/script.js"></script>
 </body>
 </html>
