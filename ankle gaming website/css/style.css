@@ -573,6 +573,13 @@ body.modal-open{overflow:hidden;}
   box-shadow:0 44px 90px -30px rgba(0,0,0,.85);
   animation:modalIn2 .35s var(--ease);transform-origin:bottom right;
 }
+/* BUGFIX: `display:flex` above overrides the browser's built-in
+   `[hidden]{display:none}` rule (author styles beat UA styles), so the
+   panel stayed visible and the ✕ close button appeared to do nothing.
+   This rule makes the `hidden` attribute work again. */
+.assistant-panel[hidden]{display:none!important;}
+/* Same safeguard for the case-study modal (relies on `hidden` too). */
+.modal[hidden],.modal-backdrop[hidden]{display:none!important;}
 @keyframes modalIn2{from{opacity:0;transform:translateY(14px) scale(.97);}to{opacity:1;transform:translateY(0) scale(1);}}
 .assistant-head{
   display:flex;align-items:center;justify-content:space-between;padding:16px 18px;
