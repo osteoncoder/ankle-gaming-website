@@ -565,7 +565,10 @@ async function assistantReply(q) {
   }
 }
 function setAssistant(open) {
-  assistantPanel.hidden = !open;
+  /* set the attribute explicitly (not just the property) so it can never
+     be left in a stale state by older cached CSS */
+  if (open) assistantPanel.removeAttribute('hidden');
+  else assistantPanel.setAttribute('hidden', '');
   assistantFab.setAttribute('aria-expanded', open ? 'true' : 'false');
   if (open) {
     if (!assistantGreeted) {
@@ -575,10 +578,27 @@ function setAssistant(open) {
     setTimeout(() => assistantInput.focus({ preventScroll: true }), 60);
   }
 }
-assistantFab.addEventListener('click', () => setAssistant(assistantPanel.hidden));
-assistantClose.addEventListener('click', () => setAssistant(false));
+function closeAssistant(returnFocus) {
+  setAssistant(false);
+  if (returnFocus) assistantFab.focus({ preventScroll: true });
+}
+assistantFab.addEventListener('click', () => setAssistant(assistantPanel.hasAttribute('hidden')));
+/* CLOSE ✕ — use pointerdown+click so it fires even if a stray overlay,
+   focus loss or scroll handler would swallow the click. */
+const closeAssistantNow = e => {
+  if (e) { e.preventDefault(); e.stopPropagation(); }
+  closeAssistant(true);
+};
+assistantClose.addEventListener('click', closeAssistantNow);
+assistantClose.addEventListener('pointerup', closeAssistantNow);
+/* click anywhere outside the panel (but not on the FAB) also closes it */
+document.addEventListener('pointerdown', e => {
+  if (assistantPanel.hasAttribute('hidden')) return;
+  if (e.target.closest('#assistantPanel') || e.target.closest('#assistantFab')) return;
+  setAssistant(false);
+});
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && !assistantPanel.hidden) { setAssistant(false); assistantFab.focus({ preventScroll: true }); }
+  if (e.key === 'Escape' && !assistantPanel.hasAttribute('hidden')) closeAssistant(true);
 });
 assistantForm.addEventListener('submit', e => {
   e.preventDefault();
