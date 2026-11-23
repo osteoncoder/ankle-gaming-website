@@ -204,12 +204,6 @@ filterBtns.forEach(btn => {
 /* Capability showcases — honest descriptions of what we build in each
    category. No invented clients, metrics or results. */
 const CASE_STUDIES = {
-  team: {
-    tag: 'Our Team', title: 'Leadership & Vision',
-    lead: 'AnkleGaming Private Limited is a New Delhi-based, remote-first product studio. 45+ specialists across engineering, design and product have delivered 190+ projects over 8+ years.',
-    list: ['Senior engineers across mobile, web, AI and cloud', 'Transparent sprints with regular demos and reviews', 'Rated 4.8 on Google and 4.9 on Justdial by clients', 'Long-term maintenance and scaling support after launch'],
-    tags: ['Strategy', 'Product', 'Growth'], service: ''
-  },
   mobile: {
     tag: 'Mobile Apps', title: 'Android & iOS Applications',
     lead: 'Custom mobile applications built for performance and scalability — from first wireframe to store release and beyond.',
