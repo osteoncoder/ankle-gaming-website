@@ -406,42 +406,301 @@ if (contactForm) {
       return;
     }
 
-    const key = (SITE_CONFIG.web3formsKey || '').trim();
-    if (!key) {
-      setMsg(msg, 'Our form is being connected right now — your message would not reach us yet. Please email info@anklegaming.com or WhatsApp +91 95997 34137 and we will respond within 24 hours.', 'error');
-      return;
-    }
-
     const btn = document.getElementById('cfSubmit');
     const label = btn ? btn.innerHTML : '';
     if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
     setMsg(msg, 'Sending your message...', 'pending');
 
     try {
-      const payload = new FormData(this);
-      payload.append('access_key', key);
-      payload.append('subject', 'New project enquiry — anklegaming website');
-      payload.append('from_name', 'AnkleGaming Website');
-      payload.delete('botcheck');
-      const res = await fetch('https://api.web3forms.com/submit', {
+      /* Sent through our own server, which emails the enquiry.
+         The inline form and the popup share the same endpoint. */
+      const fd = new FormData(this);
+      const payload = {
+        name: (fd.get('name') || '').toString().trim(),
+        email: (fd.get('email') || '').toString().trim(),
+        phone: (fd.get('phone') || '').toString().trim(),
+        service: (fd.get('service') || '').toString(),
+        enquiryType: (fd.get('project_type') || '').toString(),
+        budget: (fd.get('budget') || '').toString(),
+        message: (fd.get('message') || '').toString().trim(),
+        website: '',
+        elapsedMs: 999999,
+        pageUrl: location.href
+      };
+      const res = await fetch('api/enquiry', {
         method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: payload
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok && data.success) {
-        setMsg(msg, 'Thanks! Your message has been sent. We\'ll get back to you within 24 hours.');
+        setMsg(msg, 'Thank you! Your enquiry has been submitted successfully. Our team will contact you soon.');
         this.reset();
         Object.keys(validators).forEach(id => { const el = document.getElementById(id); if (el) clearError(el); });
       } else {
+        if (Array.isArray(data.fields)) {
+          data.fields.forEach(f => { const el = document.getElementById(f.field); if (el) showError(el, f.message); });
+        }
         throw new Error(data.message || 'Submission failed');
       }
     } catch (err) {
-      setMsg(msg, 'Sorry, something went wrong while sending. Please try WhatsApp or email info@anklegaming.com.', 'error');
+      setMsg(msg, (err && err.message && err.message !== 'Failed to fetch')
+        ? err.message
+        : 'Sorry, something went wrong while sending. Please try WhatsApp or email info@anklegaming.com.', 'error');
     } finally {
       if (btn) { btn.disabled = false; btn.innerHTML = label; }
     }
   });
+}
+
+/* ============ AUTO ENQUIRY POPUP ============
+   Opens once per browsing session, 1.4s after load. Dismissal or a
+   successful submission is remembered in sessionStorage, so it never
+   reopens and never blocks the site for a second time.
+   Submissions go to our own server (POST /api/enquiry) which emails
+   the enquiry. A success message is shown only when the server
+   confirms the email was actually accepted by the mail provider. */
+const ENQ_KEY = 'anklegaming:enquiry-popup:v1';
+const enquiryPopup = document.getElementById('enquiryPopup');
+if (enquiryPopup) {
+  const enqBackdrop = document.getElementById('enquiryBackdrop');
+  const enqClose = document.getElementById('enquiryClose');
+  const enqForm = document.getElementById('enquiryForm');
+  const enqMsg = document.getElementById('enqMsg');
+  const enqSubmit = document.getElementById('enqSubmit');
+  const enqSubmitLabel = enqSubmit ? enqSubmit.innerHTML : '';
+  const ENQ_AUTO_DELAY = 1400;      // 1.4s after load (within the 1–2s spec)
+  const ENQ_CLOSE_AFTER_SUCCESS = 2600;
+
+  let enqOpened = false;
+  let enqOpenedAt = 0;
+  let enqSending = false;
+  let enqSucceeded = false;
+  let enqLastFocus = null;
+  let enqOpenReason = 'auto';
+  let enqTimers = [];
+  const resetTimers = () => { enqTimers.forEach(clearTimeout); enqTimers = []; };
+
+  const enqSeen = () => {
+    try { return sessionStorage.getItem(ENQ_KEY) === '1'; } catch (e) { return false; }
+  };
+  const enqRemember = () => {
+    try { sessionStorage.setItem(ENQ_KEY, '1'); } catch (e) { /* private mode: ignore */ }
+  };
+
+  /* ---- open / close ---- */
+  const openEnquiry = (reason) => {
+    if (enqOpened || enqSeen()) return;
+    // Never interrupt the case-study modal or the assistant.
+    if (document.body.classList.contains('modal-open')) return;
+    const assistantPanel = document.getElementById('assistantPanel');
+    if (assistantPanel && !assistantPanel.hidden) return;
+
+    enqOpened = true;
+    enqOpenedAt = Date.now();
+    enqLastFocus = document.activeElement;
+    enquiryPopup.hidden = false;
+    enqBackdrop.hidden = false;
+    document.body.classList.add('modal-open');
+    enqOpenReason = reason;
+    const first = document.getElementById('enqName');
+    if (first) setTimeout(() => first.focus({ preventScroll: true }), 60);
+  };
+
+  const closeEnquiry = (opts) => {
+    if (enquiryPopup.hidden) return;
+    const immediate = !!(opts && opts.immediate);
+    const finish = () => {
+      enquiryPopup.hidden = true;
+      enqBackdrop.hidden = true;
+      enquiryPopup.classList.remove('closing');
+      enqBackdrop.classList.remove('closing');
+      document.body.classList.remove('modal-open');
+      resetTimers();
+      if (enqLastFocus && typeof enqLastFocus.focus === 'function' && !enqSucceeded) {
+        try { enqLastFocus.focus({ preventScroll: true }); } catch (e) { /* ignore */ }
+      }
+      enqOpened = false;
+    };
+    if (immediate || prefersReduced) { finish(); return; }
+    enquiryPopup.classList.add('closing');
+    enqBackdrop.classList.add('closing');
+    setTimeout(finish, 240);
+  };
+
+  /* ---- dismissal rules ---- */
+  // The popup is "engagement" UI: closing it by any means ends it for the session.
+  const dismiss = (opts) => {
+    if (enqSucceeded) { closeEnquiry(opts); return; }
+    enqRemember();
+    closeEnquiry(opts);
+  };
+
+  // 1) outside click closes immediately
+  enqBackdrop.addEventListener('click', () => dismiss({ immediate: true }));
+  // 2) × button
+  if (enqClose) enqClose.addEventListener('click', () => dismiss());
+  // 3) Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !enquiryPopup.hidden) { e.preventDefault(); dismiss(); }
+  });
+  // 4) clicks inside must never close it
+  enquiryPopup.addEventListener('click', (e) => e.stopPropagation());
+  // remember dismissal if the visitor leaves the page while it is open
+  window.addEventListener('pagehide', () => { if (!enquiryPopup.hidden) enqRemember(); });
+
+  /* ---- validation (same rules as the server) ---- */
+  const emailOK2 = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
+  const phoneOK = (v) => v.trim() === '' || /^[+0-9][0-9\s\-()]{6,19}$/.test(v.trim());
+
+  const enqValidators = {
+    enqName:    (v) => v.trim().length >= 2 ? '' : 'Please enter your name.',
+    enqEmail:   (v) => emailOK2(v) ? '' : 'Please enter a valid email address.',
+    enqPhone:   (v) => phoneOK(v) ? '' : 'Please enter a valid phone number.',
+    enqMessage: (v) => v.trim().length >= 10 ? '' : 'Please tell us a little about your project (at least 10 characters).'
+  };
+
+  const enqShowError = (field, text) => {
+    const wrap = field.closest('.field');
+    const slot = wrap && wrap.querySelector('.field-error');
+    if (wrap) wrap.classList.add('invalid');
+    if (slot) slot.textContent = text;
+    field.setAttribute('aria-invalid', 'true');
+  };
+  const enqClearError = (field) => {
+    const wrap = field.closest('.field');
+    const slot = wrap && wrap.querySelector('.field-error');
+    if (wrap) wrap.classList.remove('invalid');
+    if (slot) slot.textContent = '';
+    field.removeAttribute('aria-invalid');
+  };
+
+  Object.keys(enqValidators).forEach((id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('blur', () => {
+      const err = enqValidators[id](el.value);
+      err ? enqShowError(el, err) : enqClearError(el);
+    });
+    el.addEventListener('input', () => {
+      if (el.closest('.field').classList.contains('invalid')) enqClearError(el);
+    });
+  });
+
+  /* ---- submit ---- */
+  enqForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (enqSending || enqSucceeded) return;
+
+    // honeypot (bots only)
+    const hp = enqForm.querySelector('[name="website"]');
+    if (hp && hp.value.trim() !== '') return;
+
+    let firstBad = null;
+    Object.keys(enqValidators).forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const err = enqValidators[id](el.value);
+      if (err) { enqShowError(el, err); if (!firstBad) firstBad = el; }
+      else enqClearError(el);
+    });
+    if (firstBad) {
+      firstBad.focus({ preventScroll: true });
+      setMsg(enqMsg, 'Please fix the highlighted fields and try again.', 'error');
+      return;
+    }
+
+    enqSending = true;
+    enqSubmit.disabled = true;
+    enqSubmit.textContent = 'Sending...';
+    setMsg(enqMsg, 'Sending your enquiry...', 'pending');
+
+    const payload = {
+      name: document.getElementById('enqName').value.trim(),
+      email: document.getElementById('enqEmail').value.trim(),
+      phone: document.getElementById('enqPhone').value.trim(),
+      service: document.getElementById('enqService').value,
+      enquiryType: document.getElementById('enqType').value,
+      budget: document.getElementById('enqBudget').value,
+      message: document.getElementById('enqMessage').value.trim(),
+      website: '',
+      elapsedMs: Math.max(0, Date.now() - enqOpenedAt),
+      pageUrl: location.href
+    };
+
+    try {
+      const res = await fetch('api/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok || !data.success) {
+        // Server-side field errors map back onto the inputs.
+        if (Array.isArray(data.fields)) {
+          data.fields.forEach((f) => {
+            const map = { name: 'enqName', email: 'enqEmail', phone: 'enqPhone', message: 'enqMessage',
+              service: 'enqService', enquiryType: 'enqType', budget: 'enqBudget' };
+            const el = document.getElementById(map[f.field]);
+            if (el) enqShowError(el, f.message);
+          });
+        }
+        const fallback = 'Sorry, we could not send your enquiry. Please try again, or reach us on WhatsApp or info@anklegaming.com.';
+        throw new Error(data.message || fallback);
+      }
+
+      /* ---- success: only reached when the email really went out ---- */
+      enqSucceeded = true;
+      enqRemember();
+      enqForm.reset();
+      Object.keys(enqValidators).forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) enqClearError(el);
+      });
+      setMsg(enqMsg, 'Thank you! Your enquiry has been submitted successfully. Our team will contact you soon.', 'success');
+      enqSubmit.textContent = 'Sent';
+      enqTimers.push(setTimeout(() => closeEnquiry(), ENQ_CLOSE_AFTER_SUCCESS));
+    } catch (err) {
+      // Network failure or a non-success response: allow a retry.
+      const msg = (err && err.message && err.message !== 'Failed to fetch')
+        ? err.message
+        : 'Network error — please check your connection and try again, or message us on WhatsApp.';
+      setMsg(enqMsg, msg, 'error');
+      enqSubmit.disabled = false;
+      enqSubmit.innerHTML = enqSubmitLabel;
+    } finally {
+      enqSending = false;
+    }
+  });
+
+  /* ---- automatic opening ---- */
+  const scheduleAutoOpen = () => {
+    if (enqSeen() || enqOpened) return;
+    const fire = () => {
+      if (!enqSeen()) openEnquiry('auto');
+    };
+    if (document.readyState === 'complete') {
+      enqTimers.push(setTimeout(fire, ENQ_AUTO_DELAY));
+    } else {
+      enqTimers.push(setTimeout(fire, ENQ_AUTO_DELAY + 400));
+    }
+  };
+  scheduleAutoOpen();
+
+  // Any "Start Your Project" style CTA also re-opens it on demand
+  // (unless it was already dismissed in this session).
+  document.querySelectorAll('a[href="#contact"]').forEach((link) => {
+    link.addEventListener('click', (ev) => {
+      // Once dismissed, CTAs behave normally and scroll to the contact section.
+      if (enqSeen() || !enquiryPopup.hidden) return;
+      ev.preventDefault();
+      openEnquiry('cta');
+    });
+  });
+
+  // Expose a tiny hook so other scripts/tests can open it deliberately.
+  window.ankleOpenEnquiry = () => { enqOpened = false; openEnquiry('manual'); };
 }
 
 /* ============ NEWSLETTER (same verified form backend) ============ */

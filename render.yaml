@@ -1,38 +1,32 @@
-# Render deployment for the AnkleGaming website (static site).
+# Render deployment for the AnkleGaming website.
 #
-# NOTE: This file documents the intended deployment. If the existing Render
-# service was created from the dashboard (Root Directory = "ankle gaming
-# website", no build command, Publish Directory = "."), it keeps working
-# exactly as before — render.yaml is only applied when a service is created
-# or synced as a Blueprint. In that case this file reproduces the same site
-# and additionally applies the security headers below (the _headers file in
-# the site folder is Netlify-format and is ignored by Render).
+# The site is served by a small Node/Express server (server/) so that the
+# contact popup can deliver real email notifications. The server serves the
+# existing static files from "ankle gaming website" unchanged and handles
+# POST /api/enquiry.
+#
+# After the first deploy, add the mail credentials in
+# Render → your service → Environment (see server/.env.example).
+# Never commit real credentials to this repository.
 services:
   - type: web
     name: ankle-gaming-website
-    env: static
-    rootDir: ankle gaming website
-    buildCommand: ""
-    staticPublishPath: .
-    headers:
-      - path: /*
-        name: X-Content-Type-Options
-        value: nosniff
-      - path: /*
-        name: X-Frame-Options
-        value: SAMEORIGIN
-      - path: /*
-        name: Referrer-Policy
-        value: strict-origin-when-cross-origin
-      - path: /*
-        name: Permissions-Policy
-        value: geolocation=(), microphone=(), camera=()
-      - path: /*
-        name: Strict-Transport-Security
-        value: max-age=31536000; includeSubDomains
-      # Always revalidate so new deploys are visible immediately instead of
-      # being hidden behind a stale browser cache (assets are additionally
-      # cache-busted with ?v= query versions in the HTML).
-      - path: /*
-        name: Cache-Control
-        value: no-cache
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 22.13.0
+      - key: ENQUIRY_TO_EMAIL
+        value: info@anklegaming.com
+      - key: MAIL_FROM_NAME
+        value: AnkleGaming Website
+      - key: ENQUIRY_TIMEZONE
+        value: Asia/Kolkata
+      - key: TRUST_PROXY
+        value: "1"
+      # Secrets — set these in the Render dashboard, never in Git:
+      #   MAIL_PROVIDER, SMTP_HOST, SMTP_PORT, SMTP_SECURE,
+      #   SMTP_USER, SMTP_PASS, MAIL_FROM
+      #   (or RESEND_API_KEY + RESEND_FROM instead)
