@@ -70,7 +70,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .pre-bar i{display:block;height:100%;width:0%;background:var(--grad);background-size:200% auto;animation:gradShift 2s linear infinite;transition:width .5s var(--ease);}
 
 /* ===================== NAVBAR ===================== */
-header{
+/* Scoped to .site-header rather than the bare `header` element so the
+   navbar's fixed positioning/padding can never leak into other <header>
+   elements on the page (e.g. the enquiry popup's heading block). */
+.site-header{
   position:fixed;top:0;left:0;right:0;z-index:1000;
   padding:18px 0;transition:padding .35s var(--ease),background .35s,border-color .35s;
 }
@@ -678,10 +681,10 @@ body.modal-open{overflow:hidden;}
 
 /* ---------- DRAWER NAV (mobile + small tablets) ---------- */
 @media(max-width:900px){
-  header{padding:12px 0;padding-top:calc(12px + env(safe-area-inset-top));
+  .site-header{padding:12px 0;padding-top:calc(12px + env(safe-area-inset-top));
     background:rgba(4,8,15,.85);border-bottom:1px solid transparent;}
-  header.scrolled{padding:10px 0;padding-top:calc(10px + env(safe-area-inset-top));background:rgba(4,8,15,.95);}
-  body.menu-open header,body.menu-open header.scrolled{background:transparent;border-bottom-color:transparent;}
+  .site-header.scrolled{padding:10px 0;padding-top:calc(10px + env(safe-area-inset-top));background:rgba(4,8,15,.95);}
+  body.menu-open .site-header,body.menu-open .site-header.scrolled{background:transparent;border-bottom-color:transparent;}
   .logo{font-size:1.12rem;}
   .nav-cta{gap:10px;}
   .nav-cta .btn{display:none;}
@@ -890,14 +893,19 @@ body.modal-open{overflow:hidden;}
   display:flex;align-items:center;justify-content:center;transition:.3s;z-index:2;line-height:1;
 }
 .enq-close:hover,.enq-close:focus-visible{border-color:var(--cyan);color:var(--cyan);outline:none;}
-.enq-head{margin-bottom:22px;padding-right:48px;}
-.enq-eyebrow{
-  display:inline-block;color:var(--cyan);font-size:.72rem;font-weight:700;
-  letter-spacing:2.6px;text-transform:uppercase;margin-bottom:9px;
+.enq-head{
+  position:static;top:auto;left:auto;right:auto;bottom:auto;z-index:auto;
+  display:block;width:auto;
+  margin:0 0 24px;padding:0 52px 0 0;
+  border:0;background:none;
 }
-.enq-title{font-size:1.55rem;line-height:1.2;margin:0 0 8px;}
-.enq-lead{color:var(--muted);font-size:.92rem;line-height:1.6;}
-#enquiryForm{gap:15px;border:0;border-radius:0;padding:0;background:none;}
+.enq-eyebrow{
+  display:block;color:var(--cyan);font-size:.72rem;font-weight:700;
+  letter-spacing:2.6px;text-transform:uppercase;line-height:1.4;margin:0 0 10px;
+}
+.enq-title{font-size:1.55rem;line-height:1.2;margin:0 0 10px;}
+.enq-lead{color:var(--muted);font-size:.92rem;line-height:1.6;margin:0;max-width:56ch;}
+#enquiryForm{position:relative;display:flex;flex-direction:column;gap:15px;margin:0;border:0;border-radius:0;padding:0;background:none;}
 .enq-submit{width:100%;justify-content:center;margin-top:4px;}
 .enq-alt{font-size:.86rem;color:var(--muted);text-align:center;margin-top:2px;}
 .enq-alt a{color:var(--cyan);font-weight:600;display:inline-block;padding:4px 2px;}
