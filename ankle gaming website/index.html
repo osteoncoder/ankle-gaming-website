@@ -765,13 +765,12 @@
         </div>
 
         <!--
-          HOW TO MAKE THIS FORM LIVE (2 minutes, free):
-          1. Sign up at https://web3forms.com and copy your Access Key.
-          2. Paste it as web3formsKey in SITE_CONFIG at the top of js/script.js
-             (the newsletter form in the footer uses the same key).
-          Until a key is added the form will NOT silently pretend to succeed: it shows
-          clear validation errors and tells the visitor how else to reach you.
-          The key is a public form key (safe to expose), NOT a private API secret.
+          HOW THIS FORM WORKS:
+          It posts to our own server (POST /api/enquiry), which validates the
+          details and emails them to the company inbox. The same endpoint powers
+          the enquiry popup, so email credentials live only on the server
+          (environment variables) and never in this file.
+          See server/.env.example for the SMTP / Resend settings.
         -->
         <form id="contactForm" novalidate>
           <div class="field">
@@ -935,6 +934,107 @@
   </div>
 </div>
 
+<!-- ================= ENQUIRY POPUP ================= -->
+<div class="enq-backdrop" id="enquiryBackdrop" hidden></div>
+<div class="enq-modal" id="enquiryPopup" role="dialog" aria-modal="true" aria-labelledby="enqTitle" aria-describedby="enqLead" hidden>
+  <button type="button" class="enq-close" id="enquiryClose" aria-label="Close enquiry form">&#10005;</button>
+
+  <header class="enq-head">
+    <span class="enq-eyebrow">Get In Touch</span>
+    <h3 class="enq-title" id="enqTitle">Start Your Project</h3>
+    <p class="enq-lead" id="enqLead">Tell us about your project — we'll respond within 24 hours.</p>
+  </header>
+
+  <form id="enquiryForm" novalidate>
+    <div class="field">
+      <label for="enqName">Your Name *</label>
+      <input type="text" id="enqName" name="name" placeholder="Your full name" autocomplete="name" required maxlength="120">
+      <span class="field-error" data-error-for="enqName"></span>
+    </div>
+
+    <div class="row2">
+      <div class="field">
+        <label for="enqEmail">Your Email *</label>
+        <input type="email" id="enqEmail" name="email" placeholder="you@example.com" autocomplete="email" required maxlength="200">
+        <span class="field-error" data-error-for="enqEmail"></span>
+      </div>
+      <div class="field">
+        <label for="enqPhone">Phone / WhatsApp</label>
+        <input type="tel" id="enqPhone" name="phone" placeholder="+91 00000 00000" autocomplete="tel" maxlength="40">
+        <span class="field-error" data-error-for="enqPhone"></span>
+      </div>
+    </div>
+
+    <div class="row2">
+      <div class="field">
+        <label for="enqService">Service Required</label>
+        <select id="enqService" name="service">
+          <option value="">Select a service</option>
+          <option>Android App Development</option>
+          <option>iOS App Development</option>
+          <option>Cross Platform Development</option>
+          <option>Website Development</option>
+          <option>Web Application Development</option>
+          <option>AI / ML Development</option>
+          <option>WordPress Development</option>
+          <option>UI / UX Design</option>
+          <option>Game Development</option>
+          <option>SaaS Development</option>
+          <option>Software Development</option>
+          <option>CRM / CMS Development</option>
+        </select>
+        <span class="field-error" data-error-for="enqService"></span>
+      </div>
+      <div class="field">
+        <label for="enqType">Enquiry Type</label>
+        <select id="enqType" name="enquiryType">
+          <option value="">Select enquiry type</option>
+          <option>New Project</option>
+          <option>Existing Product Enhancement</option>
+          <option>Dedicated Team / Staff Augmentation</option>
+          <option>Support &amp; Maintenance</option>
+          <option>Free Consultation</option>
+          <option>Other</option>
+        </select>
+        <span class="field-error" data-error-for="enqType"></span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="enqBudget">Indicative Budget <span class="label-opt">(optional)</span></label>
+      <select id="enqBudget" name="budget">
+        <option value="">Prefer to discuss</option>
+        <option>Under ₹2 Lakh</option>
+        <option>₹2 – 5 Lakh</option>
+        <option>₹5 – 15 Lakh</option>
+        <option>₹15 Lakh+</option>
+      </select>
+      <span class="field-error" data-error-for="enqBudget"></span>
+    </div>
+
+    <div class="field">
+      <label for="enqMessage">Project Details *</label>
+      <textarea id="enqMessage" name="message" placeholder="Tell us about your project, goals and timeline..." required maxlength="5000"></textarea>
+      <span class="field-error" data-error-for="enqMessage"></span>
+    </div>
+
+    <!-- honeypot: hidden from humans, bots fill it in -->
+    <div class="hp-field" aria-hidden="true">
+      <label for="enqWebsite">Website</label>
+      <input type="text" id="enqWebsite" name="website" tabindex="-1" autocomplete="off">
+    </div>
+
+    <button type="submit" class="btn btn-primary enq-submit" id="enqSubmit">Send Message
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+    <p class="form-msg" id="enqMsg" role="status" aria-live="polite"></p>
+
+    <p class="enq-alt">Prefer WhatsApp? <a href="https://wa.me/919599734137?text=Hi%20AnkleGaming%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener">Chat with us now →</a></p>
+    <p class="enq-privacy">We use your details only to reply to this enquiry. No spam, ever.</p>
+  </form>
+</div>
+
 <!-- ================= AI ASSISTANT ================= -->
 <div class="assistant" id="assistant">
   <div class="assistant-panel" id="assistantPanel" role="dialog" aria-label="AnkleGaming website assistant" hidden>
@@ -982,6 +1082,6 @@
 }
 </script>
 
-<script src="js/script.js?v=4"></script>
+<script src="js/script.js?v=5"></script>
 </body>
 </html>

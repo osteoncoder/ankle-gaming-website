@@ -22,11 +22,31 @@ WHAT'S INSIDE
   404.html            Page-not-found page
   favicon.svg         Browser tab icon
   css/style.css       All styling
-  js/script.js        All interactivity (menus, sliders, forms, assistant)
+  js/script.js        All interactivity (menus, sliders, forms, enquiry popup)
   assets/             All photos and the company logo
   sitemap.xml         SEO sitemap
   robots.txt          Search-engine rules
   _headers / _redirects  Hosting rules (Netlify/Render)
+
+
+ENQUIRY POPUP & EMAIL NOTIFICATIONS
+-----------------------------------
+The enquiry form now opens automatically as a popup 1.4 seconds after the
+page loads (once per browsing session) and also sends the same details by
+email to the company inbox.
+
+To receive the emails, the site must run through the bundled Node server
+in the "server" folder (see server/README.md) and the mail credentials must
+be set as environment variables — SMTP with Nodemailer, or the Resend API.
+Credentials are never stored in these website files.
+
+  cd server
+  npm install
+  cp .env.example .env     (then fill in the mail settings)
+  npm start                (site opens on http://localhost:3000)
+
+Until the mail settings are added, the form still validates but tells the
+visitor to use WhatsApp or email, and never claims a message was sent.
 
 HOW TO PUT IT ONLINE (OPTIONAL, FREE)
 -------------------------------------
