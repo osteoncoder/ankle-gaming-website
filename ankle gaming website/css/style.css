@@ -82,6 +82,9 @@ nav{display:flex;align-items:center;justify-content:space-between;gap:20px;}
 .logo{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-size:1.32rem;font-weight:700;letter-spacing:.2px;}
 .logo-mark{flex:0 0 auto;border-radius:8px;}
 .logo-word em{font-style:normal;color:var(--cyan);}
+.logo-img{height:30px;width:auto;display:block;}
+.logo-img--footer{height:28px;}
+.pre-logo-img{width:min(240px,62vw);height:auto;margin-bottom:22px;}
 .nav-links{display:flex;gap:34px;}
 .nav-links a{position:relative;font-size:.92rem;color:var(--muted);font-weight:500;padding:6px 2px;transition:color .3s;}
 .nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;border-radius:2px;background:var(--grad);transition:width .3s var(--ease);}
@@ -365,6 +368,28 @@ section{position:relative;padding:110px 0;z-index:1;}
 .leader-card h4{font-size:1rem;margin-bottom:5px;}
 .leader-card span{color:var(--cyan);font-size:.78rem;letter-spacing:1.6px;text-transform:uppercase;font-weight:600;}
 .leader-card p{color:var(--muted);font-size:.84rem;margin-top:12px;line-height:1.6;}
+.leader-card--photo{border-style:solid;background:linear-gradient(165deg,var(--surface-2),var(--surface));}
+.leader-photo{
+  width:128px;height:160px;object-fit:cover;object-position:top center;
+  border-radius:16px;margin:0 auto 18px;border:1px solid var(--border-strong);
+}
+
+/* ===================== AWARDS ===================== */
+.awards-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;}
+.award-card{
+  border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);
+  background:var(--surface);transition:border-color .35s,box-shadow .35s;
+  display:flex;flex-direction:column;
+}
+.award-card:hover{border-color:var(--border-strong);box-shadow:0 28px 56px -24px rgba(46,124,246,.35);}
+.award-photo{height:300px;position:relative;overflow:hidden;flex:0 0 auto;}
+.award-photo img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .6s var(--ease);}
+.award-card:hover .award-photo img{transform:scale(1.05);}
+.award-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,15,.5),transparent 55%);pointer-events:none;}
+.award-body{padding:24px 26px 28px;display:flex;flex-direction:column;flex:1;}
+.award-body h3{margin:10px 0 8px;font-size:1.14rem;}
+.award-body p{color:var(--muted);font-size:.87rem;line-height:1.6;}
+.award-body .tags{margin-top:14px;}
 
 /* ===================== STACK ===================== */
 .stack-card h3{color:var(--text);}
@@ -759,6 +784,8 @@ body.modal-open{overflow:hidden;}
   .trusted-head{font-size:.68rem;letter-spacing:1.8px;margin-bottom:24px;}
 
   .grid-6,.grid-3{grid-template-columns:1fr;}
+  .awards-grid{grid-template-columns:1fr;}
+  .award-photo{height:240px;}
   .industries-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
   .industry-card{padding:22px 18px;}
   .process-steps{grid-template-columns:1fr;gap:14px;}
@@ -827,4 +854,18 @@ body.modal-open{overflow:hidden;}
   .marquee{animation:none!important;}
   #preloader{display:none!important;}
   .grad-text{animation:none!important;}
+}
+
+/* Service imagery: locally hosted artwork, sized consistently across cards. */
+.service-image{
+  position:relative;overflow:hidden;aspect-ratio:16/9;border-radius:14px;
+  border:1px solid var(--border);background:var(--surface-2);margin-bottom:20px;
+}
+.service-image img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+.service-image::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,rgba(4,8,15,.28),transparent 55%);}
+.card:hover .service-image img{transform:scale(1.05);}
+.case-thumb--service img{object-position:center;}
+@media (prefers-reduced-motion: reduce){
+  .service-image img{transition:none;}
+  .card:hover .service-image img{transform:none;}
 }

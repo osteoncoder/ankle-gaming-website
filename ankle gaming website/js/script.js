@@ -239,6 +239,18 @@ const CASE_STUDIES = {
     lead: 'Interfaces and brand systems designed for clarity and conversion — research first, pixels second.',
     list: ['UX research, wireframes and user flows', 'Interactive Figma prototypes for stakeholder approval', 'Reusable design systems that scale with your team', 'Brand identity: logo, typography and guidelines'],
     tags: ['Figma', 'UI / UX', 'Branding'], service: 'UI / UX Design'
+  },
+  culture: {
+    tag: 'Our Culture', title: 'Life at AnkleGaming',
+    lead: 'A remote-first team of 45+ specialists based in New Delhi — celebrating milestones, new beginnings and shipping great products together.',
+    list: ['Festive celebrations and team milestones at our New Delhi office', 'Remote-first culture serving clients globally', 'Senior engineers, designers and product specialists under one roof', 'Rated 4.8 on Google and 4.9 on Justdial by clients'],
+    tags: ['Team', 'Culture', 'New Delhi'], service: ''
+  },
+  award: {
+    tag: 'Recognition', title: 'Awards & Recognition',
+    lead: 'AnkleGaming Private Limited was recognised by Clutch as a Best Application Development Company.',
+    list: ['Clutch — Best Application Development Company', '190+ projects delivered over 8+ years', '4.8 rating on Google · 4.9 rating on Justdial'],
+    tags: ['Clutch', 'Award', 'Leadership'], service: ''
   }
 };
 
